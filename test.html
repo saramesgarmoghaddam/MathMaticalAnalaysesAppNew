@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8" />
+  <title>Metric Spaces Interactive Lab</title>
+  <link rel="stylesheet" href="styletest.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+</head>
+<body>
+<div class="layout">
+  <!-- LEFT: Visualization -->
+  <section class="visual-panel">
+    <div class="space-info" id="spaceInfo">
+      ℝ — بازه باز روی محور اعداد حقیقی
+    </div>
+    <div class="canvas-wrapper">
+      <div class="slider-nav">
+        <button id="prevBtn" class="nav-btn">‹ قبلی</button>
+        <button id="nextBtn" class="nav-btn">بعدی ›</button>
+      </div>
+      <div id="canvas-holder"></div>
+    </div>
+  </section>
+
+<div class="card" id="depthCard" style="display:none;">
+  <h3>عمق نقطه (فضای ۳ بعدی)</h3>
+  <p class="hint">
+ با تغییر عمق، نقطه از سطح کره به داخل یا خارج آن حرکت می‌کند</p>
+  <div class="slider-row">
+    <input type="range" id="depth" min="80" max="240" value="160">
+    <span id="depthValue">160</span>
+  </div>
+</div>
+
+  <!-- RIGHT: Controls & Analysis -->
+  <section class="analysis-panel" dir="rtl">
+    <!-- Radius Control -->
+    <div class="card">
+      <h3>شعاع همسایگی</h3>
+      <p class="hint">شعاع همسایگی ε را تنظیم کنید</p>
+      <div class="slider-row">
+        <input type="range" id="epsilon" min="5" max="100" value="30">
+        <span id="epsValue">30</span>
+      </div>
+    </div>
+
+    <!-- Point Analysis -->
+    <div class="card">
+      <h3>تحلیل نقطه</h3>
+      <div id="point-type" class="badge neutral">
+        هنوز نقطه‌ای انتخاب نشده
+      </div>
+      <div id="result-detail" class="detail">
+        روی شکل کلیک کنید تا نقطه تحلیل شود
+      </div>
+    </div>
+
+    <!-- Definitions -->
+    <div class="card definitions" dir="rtl">
+      <h3>تعریف‌ها</h3>
+      <div class="def-row">
+        <span class="def-label">نقطه درونی:</span>
+        <div class="math" dir="ltr">
+          \[
+          x \in \operatorname{int}(A) \iff \exists \varepsilon > 0 : B_\varepsilon(x) \subset A
+          \]
+        </div>
+      </div>
+      <div class="def-row">
+        <span class="def-label">نقطه مرزی:</span>
+        <div class="math" dir="ltr">
+          \[
+          x \in \partial A \iff \forall \varepsilon > 0 : B_\varepsilon(x) \cap A \neq \varnothing \land B_\varepsilon(x) \cap A^c \neq \varnothing
+          \]
+        </div>
+      </div>
+      <div class="def-row">
+        <span class="def-label">نقطه بیرونی:</span>
+        <div class="math" dir="ltr">
+          \[
+          x \in \operatorname{ext}(A) \iff \exists \varepsilon > 0 : B_\varepsilon(x) \subset A^c
+          \]
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- MathJax -->
+<script>
+  window.MathJax = {
+    tex: { displayMath: [['\\[','\\]']] }
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<script src="jstest.js"></script>
+</body>
+</html>

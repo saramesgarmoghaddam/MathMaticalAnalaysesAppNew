@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نقاط درونی، بیرونی و مرزی</title>
+    <link rel="stylesheet" href="stylepage2.css">
+</head>
+<body>
+    <div class="container">
+        <h1>نقاط درونی، بیرونی و مرزی یک مجموعه</h1>
+
+        <!-- منوی سرمبحث‌ها -->
+        <nav>
+            <a href="#neighborhood">شعاع همسایگی</a>
+            <a href="#interior">نقاط درونی</a>
+            <a href="#exterior">نقاط بیرونی</a>
+            <a href="#boundary">نقاط مرزی</a>
+            <a href="#theorems">مسائل و قضایا</a>
+        </nav>
+
+        <!-- بخش ۱: تعریف شعاع همسایگی -->
+        <section id="neighborhood">
+            <h2>تعریف شعاع همسایگی</h2>
+            <p>شعاع همسایگی (Neighborhood) یک نقطه x با شعاع ε > 0، مجموعه همه نقاطی است که فاصله‌شان از x کمتر از ε باشد. به عبارت دیگر:</p>
+            <p>N(x, ε) = { y | d(x, y) < ε }</p>
+            <p>این مفهوم پایه درک نقاط درونی و بیرونی است.</p>
+            <img src="https://i.sstatic.net/j01wD.jpg" alt="شعاع همسایگی و نقطه درونی">
+        </section>
+
+        <!-- بخش ۲: نقاط درونی -->
+        <section id="interior">
+            <h2>نقاط درونی (Interior Points)</h2>
+            <p>نقطه x درونی مجموعه A است اگر یک همسایگی کامل از x وجود داشته باشد که تماماً داخل A باشد.</p>
+            <p>به عبارت ریاضی: ∃ ε > 0 که N(x, ε) ⊆ A</p>
+            <p>مجموعه همه نقاط درونی A را Int(A) یا A° می‌گویند.</p>
+            <img src="https://pages.mtu.edu/~shene/COURSES/cs3621/NOTES/model/i-e-c.jpg" alt="نقاط درونی، بیرونی و مرزی">
+            <img src="https://wiki.math.ntnu.no/_media/linearmethods/basicspaces/innerpoints_boundarypoints.jpg" alt="نقطه درونی با همسایگی">
+        </section>
+
+        <!-- بخش ۳: نقاط بیرونی -->
+        <section id="exterior">
+            <h2>نقاط بیرونی (Exterior Points)</h2>
+            <p>نقطه x بیرونی مجموعه A است اگر یک همسایگی کامل از x وجود داشته باشد که هیچ نقطه مشترکی با A نداشته باشد.</p>
+            <p>به عبارت دیگر: ∃ ε > 0 که N(x, ε) ∩ A = ∅</p>
+            <p>مجموعه نقاط بیرونی را Ext(A) می‌گویند.</p>
+            <img src="https://www.researchgate.net/publication/221471793/figure/fig1/AS:669062711484432@1536528389557/a-Illustrates-the-interior-boundary-and-exterior-point-sets-of-a-complex-region.png" alt="نقاط بیرونی">
+        </section>
+
+        <!-- بخش ۴: نقاط مرزی -->
+        <section id="boundary">
+            <h2>نقاط مرزی (Boundary Points)</h2>
+            <p>نقطه x مرزی مجموعه A است اگر هر همسایگی از x هم نقطه‌ای از A و هم نقطه‌ای از خارج A داشته باشد.</p>
+            <p>به عبارت دیگر: ∀ ε > 0، N(x, ε) ∩ A ≠ ∅ و N(x, ε) ∩ (X\A) ≠ ∅</p>
+            <p>مجموعه نقاط مرزی را Bd(A) یا ∂A می‌گویند.</p>
+            <img src="https://imaginaryfunctions.wordpress.com/wp-content/uploads/2013/11/topology.png" alt="نقاط مرزی در توپولوژی">
+        </section>
+
+        <!-- بخش ۵: مسائل و قضایا -->
+        <section id="theorems">
+            <h2>مسائل و قضایا</h2>
+            <p>۱. مجموعه باز: مجموعه‌ای است که همه نقاطش درونی باشند (A = Int(A)).</p>
+            <p>۲. مجموعه بسته: مجموعه‌ای است که مکملش باز باشد (یا همه نقاط مرزی‌اش داخل خودش باشد).</p>
+            <p>۳. بسته شدن مجموعه (Closure): A ∪ Bd(A)</p>
+            <p>۴. مثال: در خط واقعی، بازه (0,1) نقاط درونی دارد، نقاط ۰ و ۱ مرزی هستند و بقیه بیرونی.</p>
+            <img src="https://i.ytimg.com/vi/AW7-CTLP-nM/maxresdefault.jpg" alt="خلاصه نقاط درونی، بیرونی و مرزی">
+        </section>
+
+        <a href="test.html" class="next-btn">بعدی: شکل های بصری برای یادگیری عمیق
+    </div>
+</body>
+</html>
