@@ -1,5 +1,5 @@
 :root {
-  --bg-image: url('Image/First.jpg'); /* تصویر پس‌زمینه خودت رو اینجا بذار */
+  --bg-image: url('Image/image.png'); /* تصویر پس‌زمینه خودت رو اینجا بذار */
   --glass-bg: rgba(16, 18, 40, 0.48);
   --glass-border: rgba(255, 255, 255, 0.18);
   --text-primary: #ffffff;
@@ -27,13 +27,13 @@ body {
 }
 
 .glass {
-  max-width: 1000px;
-  margin: 50px auto;
+  max-width: 800px;
+  margin: 200px auto;
   padding: 20px;
-  border-radius: 20px;
+  border-radius: 40px;
   background: var(--glass-bg);
-  backdrop-filter: blur(14px);
-  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(60px);
+  border: 5px solid var(--glass-border);
 }
 
 header {
