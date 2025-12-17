@@ -1,39 +1,70 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="fa" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to App</title>
-    <link rel="stylesheet" href="StyleOfFirstPage.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>کاوش در مجموعه‌ها</title>
+  <link rel="stylesheet" href="StyleOfFirstPage.css">
+  <!-- فونت فارسی -->
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <!-- Sign Up با آیکون در -->
-      <div class="sign-up">
-        Sign Up
-        <i class="fas fa-door-open"></i>  <!-- آیکون در باز شده دقیقاً مثل عکس -->
-    </div>
+  <!-- پس‌زمینه -->
+  <div class="bg"></div>
+  <div class="particles"></div>
 
-        <!-- متن Welcome با ستاره‌ها در جای درست -->
-        <div class="welcome-text">
-            <span class="star left-top">✦</span>
-            
-            <div class="line1">
-                <span class="w">W</span><span class="e">E</span><span class="l">L</span><span class="c">C</span><span class="o">O</span><span class="m">M</span><span class="e2">E</span>
-            </div>
-            
-            <div class="line2">
-                <span class="t">T</span><span class="o2">o</span>
-                <span class="a">A</span><span class="p">P</span><span class="p2">P</span>
-            </div>
-            
-            <span class="star right-bottom">✦</span>
+  <!-- پنل اصلی -->
+  <main class="glass">
+    <header>
+      <div class="kicker">کاوش در توپولوژی</div>
+      <h1 class="title">
+        <span class="orb"></span>
+        نقاط درونی، بیرونی و مرزی
+      </h1>
+      <p class="subtitle">
+        یک رابط بصری برای یادگیری مفاهیم بنیادی آنالیز ریاضی و توپولوژی.
+      </p>
+    </header>
+
+    <section class="grid">
+      <article class="card">
+        <div class="card-header">
+          <span class="badge blue"></span>
+          <h2 class="card-title">مجموعه‌های باز</h2>
         </div>
+        <p class="card-body">
+          عناصر توپولوژیک که همسایگی کاملشان در مجموعه قرار دارد.
+        </p>
+      </article>
 
-        <!-- دکمه Get Start با ایموجی سمت چپ -->
-         <a href="page2.html" class="get-start-btn">Get Start :)</a>
-       
+      <article class="card">
+        <div class="card-header">
+          <span class="badge purple"></span>
+          <h2 class="card-title">مجموعه‌های بسته</h2>
+        </div>
+        <p class="card-body">
+          شامل همه نقاط و مرز مجموعه، بستار کامل آن.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="card-header">
+          <span class="badge pink"></span>
+          <h2 class="card-title">نقاط مرزی</h2>
+        </div>
+        <p class="card-body">
+          نقاطی که همسایگی‌شان هم با مجموعه و هم بیرون آن برخورد دارد.
+        </p>
+      </article>
+    </section>
+
+    <p class="blurb">
+      این اپلیکیشن به شما کمک می‌کند مفاهیم نقاط درونی، بیرونی، مرزی و بستار مجموعه‌ها را به صورت بصری و تعاملی یاد بگیرید.
+    </p>
+
+    <div class="cta-wrap">
+      <button class="cta">شروع کاوش</button>
     </div>
+  </main>
 </body>
 </html>
