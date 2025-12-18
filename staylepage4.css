@@ -1,0 +1,134 @@
+:root{
+  --glass: rgba(255,255,255,0.08);
+  --border: rgba(255,255,255,0.18);
+  --neon1:#6cf;
+  --neon2:#c6f;
+}
+
+body{
+  margin:0;
+  font-family:sans-serif;
+  background:radial-gradient(circle at top,#1b1f3b,#0b0d1a);
+  color:#fff;
+  overflow-x:hidden;
+}
+
+/* ===== Header ===== */
+.header{
+  position:relative;
+  height:220px;
+  text-align:center;
+  overflow:hidden;
+}
+
+#p5-header{
+  position:absolute;
+  inset:0;
+}
+
+.header h1{
+  position:relative;
+  z-index:2;
+  padding-top:80px;
+  font-size:30px;
+}
+
+/* ===== Grid ===== */
+.container{
+  padding:24px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+@media(max-width:1024px){
+  .container{grid-template-columns:repeat(2,1fr)}
+}
+
+@media(max-width:640px){
+  .container{grid-template-columns:1fr}
+}
+
+/* ===== Card ===== */
+.exercise{
+  position:relative;
+  background:var(--glass);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:16px;
+  backdrop-filter:blur(14px);
+  box-shadow:0 10px 30px rgba(0,0,0,.35);
+  cursor:pointer;
+  transition:transform .3s, box-shadow .3s;
+}
+
+.exercise:hover{
+  transform:translateY(-6px);
+  box-shadow:0 18px 45px rgba(0,0,0,.5);
+}
+
+.exercise h2{
+  font-size:16px;
+  margin-bottom:12px;
+}
+
+.content-box{
+  height:120px;
+  border-radius:14px;
+  background:rgba(0,0,0,.35);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#aaa;
+  margin-bottom:12px;
+}
+
+.answer-btn{
+  width:100%;
+  padding:10px;
+  border-radius:14px;
+  border:none;
+  background:linear-gradient(135deg,var(--neon1),var(--neon2));
+  color:#000;
+  font-weight:bold;
+}
+
+.answer{display:none;margin-top:10px}
+
+/* ===== Expanded ===== */
+.exercise.expanded{
+  position:fixed;
+  inset:40px;
+  z-index:1001;
+  transform:none;
+  background:rgba(15,18,40,.95);
+  overflow:auto;
+}
+
+.overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.6);
+  backdrop-filter:blur(4px);
+  z-index:1000;
+  display:none;
+}
+
+.overlay.active{display:block}
+
+.close-btn{
+  position:sticky;
+  top:0;
+  margin-bottom:12px;
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  border:none;
+  background:rgba(255,255,255,.15);
+  color:#fff;
+  font-size:18px;
+  cursor:pointer;
+  display:none;
+}
+
+.exercise.expanded .close-btn{display:block}
