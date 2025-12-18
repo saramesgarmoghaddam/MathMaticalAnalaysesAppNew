@@ -306,12 +306,15 @@ function createSketch(space) {
                 let point = ray.copy().mult(depth);
 
                 // نقطه قرمز
-                p.push();
-                p.translate(point.x, point.y, point.z);
-                p.fill(255, 60, 60);
-                p.noStroke();
-                p.sphere(8);
-                p.pop();
+             p.push();
+             p.translate(point.x, point.y, point.z);
+             p.noStroke();
+             p.fill(255, 0, 0);
+             p.emissiveMaterial(400, 1, 50);  // قرمز درخشان با کمی glow
+             p.specularMaterial(255, 0, 0);
+             p.shininess(200);
+             p.sphere(12);  // بزرگ‌تر برای برجسته بودن
+             p.pop();
 
                 // کره کوچک همسایگی ε
                 p.push();
@@ -338,15 +341,15 @@ function createSketch(space) {
             if (depth < R - delta3D) {
                 badge.textContent = "نقطه درونی";
                 badge.className = "badge interior";
-                detail.textContent = "عمق انتخاب‌شده باعث شده نقطه کاملاً داخل کره قرار بگیرد.";
+                detail.textContent = "هر همسایگی از این نقطه حتما کره را قطع می کند";
             } else if (Math.abs(depth - R) <= delta3D) {
                 badge.textContent = "نقطه مرزی";
                 badge.className = "badge boundary";
-                detail.textContent = "در این عمق، نقطه روی مرز کره قرار دارد.";
+                detail.textContent = "هر همسایگی از این نقطه هم داخل و هم خارج کره را شامل می شود";
             } else {
                 badge.textContent = "نقطه بیرونی";
                 badge.className = "badge exterior";
-                detail.textContent = "عمق انتخاب‌شده نقطه را خارج از کره قرار داده است.";
+                detail.textContent = "وجود دارد همسایگی از این نقطه که کره را در هیچ جا قطع نمی کند";
             }
         }
     });

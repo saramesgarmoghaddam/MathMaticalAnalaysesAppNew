@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="fa" >
 <head>
   <meta charset="UTF-8" />
   <title>Metric Spaces Interactive Lab</title>
@@ -22,29 +22,31 @@
     </div>
   </section>
 
-<div class="card" id="depthCard" style="display:none;">
-  <h3>عمق نقطه (فضای ۳ بعدی)</h3>
-  <p class="hint">
- با تغییر عمق، نقطه از سطح کره به داخل یا خارج آن حرکت می‌کند</p>
-  <div class="slider-row">
-    <input type="range" id="depth" min="80" max="240" value="160">
-    <span id="depthValue">160</span>
-  </div>
-</div>
-
   <!-- RIGHT: Controls & Analysis -->
-  <section class="analysis-panel" dir="rtl">
-    <!-- Radius Control -->
+  <section class="analysis-panel">
+    <!-- کارت عمق (اول قرار می‌گیره تا وقتی فضای ۳ بعدی شد، بالای بقیه کارت‌ها ظاهر شود) -->
+    <div class="card" id="depthCard" style="display:none;">
+      <h3>عمق نقطه (فضای ۳ بعدی)</h3>
+      <p class="hint">
+        با تغییر عمق، نقطه از سطح کره به داخل یا خارج آن حرکت می‌کند
+      </p>
+      <div class="slider-row">
+        <input type="range" id="depth" min="80" max="240" value="160">
+        <span id="depthValue">160</span>
+      </div>
+    </div>
+
+    <!-- شعاع همسایگی -->
     <div class="card">
       <h3>شعاع همسایگی</h3>
-      <p class="hint">شعاع همسایگی ε را تنظیم کنید</p>
+      <p class="hint">انواع اندازه شعاع همسایگی را امتحان کنید</p>
       <div class="slider-row">
         <input type="range" id="epsilon" min="5" max="100" value="30">
         <span id="epsValue">30</span>
       </div>
     </div>
 
-    <!-- Point Analysis -->
+    <!-- تحلیل نقطه -->
     <div class="card">
       <h3>تحلیل نقطه</h3>
       <div id="point-type" class="badge neutral">
@@ -55,8 +57,8 @@
       </div>
     </div>
 
-    <!-- Definitions -->
-    <div class="card definitions" dir="rtl">
+    <!-- تعریف‌ها -->
+    <div class="card definitions">
       <h3>تعریف‌ها</h3>
       <div class="def-row">
         <span class="def-label">نقطه درونی:</span>
