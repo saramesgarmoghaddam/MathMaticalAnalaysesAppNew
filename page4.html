@@ -20,12 +20,35 @@
 <div class="container">
   <!-- 6 items -->
   <div class="exercise" onclick="openExercise(this)">
-    <button class="close-btn" onclick="closeExercise(event)">✕</button>
-    <h2>تمرین 1</h2>
-    <div class="content-box">تصویر / تعامل</div>
-    <button class="answer-btn" onclick="toggleAnswer(event,this)">دیدن پاسخ</button>
-    <div class="answer">پاسخ تمرین 1</div>
+  <button class="close-btn" onclick="closeExercise(event)">✕</button>
+  <h2>تمرین 1</h2>
+
+  <div class="exercise-content">
+    <!-- ===== دستورالعمل ===== -->
+    <div class="instruction">
+      نقاط را بر اساس موقعیت‌شان نسبت به دایره دسته‌بندی کن: داخلی، مرزی، بیرونی. 
+      این نقاط در فضای متریک دوبعدی هستند (x,y)
+    </div>
+
+    <!-- ===== شکل و باکس‌های دسته‌بندی ===== -->
+    <div class="main-panel">
+      <div class="canvas-panel">
+        <canvas id="setCanvas" width="600" height="360"></canvas>
+      </div>
+      <div class="boxes-panel">
+        <div class="box" data-type="inside">داخلی</div>
+        <div class="box" data-type="boundary">مرزی</div>
+        <div class="box" data-type="outside">بیرونی</div>
+      </div>
+    </div>
+
+    <!-- ===== نتیجه ===== -->
+    <div class="result-panel">
+      <button class="answer-btn" onclick="finishExercise(event)">Finish</button>
+      <div class="answer" id="exercise1-answer"></div>
+    </div>
   </div>
+</div>
 
   <div class="exercise" onclick="openExercise(this)">
     <button class="close-btn" onclick="closeExercise(event)">✕</button>
