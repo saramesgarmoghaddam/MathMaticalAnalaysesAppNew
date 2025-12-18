@@ -50,37 +50,83 @@
   </div>
 </div>
 
-  <div class="exercise" onclick="openExercise(this)">
-    <button class="close-btn" onclick="closeExercise(event)">✕</button>
-    <h2>تمرین 2</h2>
-    <div class="content-box">تصویر / تعامل</div>
-    <button class="answer-btn" onclick="toggleAnswer(event,this)">دیدن پاسخ</button>
-    <div class="answer">پاسخ تمرین 2</div>
+<div class="exercise" onclick="openExercise(this)">
+  <button class="close-btn" onclick="closeExercise(event)">✕</button>
+  <h2>تمرین 2</h2>
+  <div class="content-box">
+    مجموعه A = (0,1) ∪ {2}  را در نظر بگیرید.
+   <br> نقاط داخلی، بیرونی، مرزی و بستار Aرا بیابید.</br>  
+   <br>همچنین نشان دهید که 𝑖𝑛𝑡(A) ≠ Ā.</br> 
   </div>
+  <button class="answer-btn" onclick="toggleAnswer(event,this)">دیدن پاسخ</button>
+  <div class="answer">
+    پاسخ:  
+    - Interior(A) = (0,1)  
+    - Exterior(A) = (-∞,0) ∪ (1,2) ∪ (2,∞)  
+    - Boundary(A) = {0,1,2}  
+    - Closure(A) = [0,1] ∪ {2}  
+    و بنابراین 𝑖𝑛𝑡(A)̄ = [0,1] ≠ Ā.
+  </div>
+</div>
+
+
+<div class="exercise" onclick="openExercise(this)">
+  <button class="close-btn" onclick="closeExercise(event)">✕</button>
+  <h2>تمرین 3</h2>
+  <div class="content-box">
+    A = {(x,y) | x²+y² < 1} ∪ {(2,0)}  (توپ باز واحد به علاوه یک نقطه ایزوله).
+   <br> نقاط داخلی، بیرونی، مرزی و بستار را تعیین کنید. </br>
+    آیا مرز A بسته است؟
+  </div>
+  <button class="answer-btn" onclick="toggleAnswer(event,this)">دیدن پاسخ</button>
+  <div class="answer">
+    پاسخ:  
+    - Interior(A) = {(x,y) | x²+y² < 1}  
+    - Exterior(A) = {(x,y) | x²+y² > 1, (x,y) ≠ (2,0)}  
+    - Boundary(A) = {(x,y) | x²+y² = 1} ∪ {(2,0)}  
+    - Closure(A) = {(x,y) | x²+y² ≤ 1} ∪ {(2,0)}  
+    مرز A بسته است چون شامل دایره واحد (بسته) و نقطه ایزوله (بسته) است.
+  </div>
+</div>
+
 
   <div class="exercise" onclick="openExercise(this)">
-    <button class="close-btn" onclick="closeExercise(event)">✕</button>
-    <h2>تمرین 3</h2>
-    <div class="content-box">تصویر / تعامل</div>
-    <button class="answer-btn" onclick="toggleAnswer(event,this)">دیدن پاسخ</button>
-    <div class="answer">پاسخ تمرین 3</div>
+  <button class="close-btn" onclick="closeExercise(event)">✕</button>
+  <h2>تمرین 4</h2>
+  <div class="content-box">
+    A = [-1,1] × {0}  (خط افقی بسته روی محور x از -۱ تا ۱) را در $\mathbb{R}^2$ در نظر بگیرید.
+    الف) با متریک اقلیدسی معمول، نقاط داخلی، مرزی و بستار A را بیابید.  
+    ب) همان مجموعه را با متریک گسسته بررسی کنید.
   </div>
+  <button class="answer-btn" onclick="toggleAnswer(event,this)">دیدن پاسخ</button>
+  <div class="answer">
+    پاسخ:  
+    - با متریک اقلیدسی: Interior(A) = ∅ ، Boundary(A) = A ، Closure(A) = A.  
+    - با متریک گسسته: Interior(A) = A ، Boundary(A) = ∅ ، Closure(A) = A.
+  </div>
+</div>
 
-  <div class="exercise" onclick="openExercise(this)">
-    <button class="close-btn" onclick="closeExercise(event)">✕</button>
-    <h2>تمرین 4</h2>
-    <div class="content-box">تصویر / تعامل</div>
-    <button class="answer-btn" onclick="toggleAnswer(event,this)">دیدن پاسخ</button>
-    <div class="answer">پاسخ تمرین 4</div>
-  </div>
 
-  <div class="exercise" onclick="openExercise(this)">
-    <button class="close-btn" onclick="closeExercise(event)">✕</button>
-    <h2>تمرین 5</h2>
-    <div class="content-box">تصویر / تعامل</div>
-    <button class="answer-btn" onclick="toggleAnswer(event,this)">دیدن پاسخ</button>
-    <div class="answer">پاسخ تمرین 5</div>
+<div class="exercise" onclick="openExercise(this)">
+  <button class="close-btn" onclick="closeExercise(event)">✕</button>
+  <h2>تمرین سری پنجم - مجموعه‌های خاص</h2>
+  <div class="content-box">
+    A = ℚ ∩ [0,1]  
+    الف) نشان دهید int(A) = ∅ و Ā = [0,1].  
+    ب) ثابت کنید ∂A = [0,1].  
+    ج) مثالی بیابید که int(∂A) ≠ ∅.
   </div>
+  <button class="answer-btn" onclick="toggleAnswer(event,this)">دیدن پاسخ</button>
+  <div class="answer">
+    پاسخ:  
+    - Interior(A) = ∅  
+    - Closure(A) = [0,1]  
+    - Boundary(A) = [0,1]  
+    - در ℝ مثال برای int(∂A) ≠ ∅ وجود ندارد.  
+    - در ℝ²: مثلاً مجموعه نقاط با مختصات گویا داخل مربع واحد؛ مرزش کل مربع است و interior آن غیرخالی است.
+  </div>
+</div>
+
 
   <div class="exercise" onclick="openExercise(this)">
     <button class="close-btn" onclick="closeExercise(event)">✕</button>
