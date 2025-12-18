@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="stylepage2.css"> <!-- لینک به فایل CSS جدا -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
     <!-- پس‌زمینه متحرک p5.js -->
@@ -42,26 +43,57 @@
         </section>
 
         <section id="interior">
-            <h2>نقاط درونی (Interior Points)</h2>
-            <p>نقطه x درونی مجموعه A است اگر یک همسایگی کامل از x وجود داشته باشد که تماماً داخل A باشد.</p>
-            <p>به عبارت ریاضی: ∃ ε > 0 که N(x, ε) ⊆ A</p>
-            <p>مجموعه همه نقاط درونی A را Int(A) یا A° می‌گویند.</p>
+         <div class="concept">
+        <h2> نقاط درونی یک مجموعه (Interior Points)</h2>
+        
+        <div class="definition">
+            <strong>تعریف ریاضی دقیق:</strong><br>
+            نقطه x نقطه درونی مجموعه A⊆ℝ است اگر وجود داشته باشد δ>0 به‌طوری که بازه باز (x-δ, x+δ) کاملاً زیرمجموعه A باشد. مجموعه همه نقاط درونی A را داخلی A یا Int(A) یا A° می‌نامند.
+        </div>
+        
+        <div class="intuitive">
+            <strong>توضیح شهودی و ساده:</strong><br>
+            نقطه درونی جایی است که «کاملاً داخل» مجموعه قرار دارد و کمی فضای خالی اطرافش وجود دارد که همه آن فضا هنوز داخل مجموعه است. یعنی می‌توان یک توپ کوچک (بازه باز) اطراف آن کشید که کاملاً داخل مجموعه بماند.
+        </div>
+        
+        <div class="example">
+            <strong>مثال:</strong><br>
+            برای A = [0,1]، نقاط درونی همه نقاط بازه (0,1) هستند.<br>
+            نقاط ۰ و ۱ درونی نیستند، چون هر بازه بازی اطرافشان شامل نقاطی خارج از [0,1] است.<br>
+            بنابراین Int([0,1]) = (0,1).
+        </div>
+    </div>
             <img src="https://pages.mtu.edu/~shene/COURSES/cs3621/NOTES/model/i-e-c.jpg" alt="نقاط درونی، بیرونی و مرزی">
             <img src="https://wiki.math.ntnu.no/_media/linearmethods/basicspaces/innerpoints_boundarypoints.jpg" alt="نقطه درونی با همسایگی">
         </section>
 
         <section id="exterior">
-            <h2>نقاط بیرونی (Exterior Points)</h2>
-            <p>نقطه x بیرونی مجموعه A است اگر یک همسایگی کامل از x وجود داشته باشد که هیچ نقطه مشترکی با A نداشته باشد.</p>
-            <p>به عبارت دیگر: ∃ ε > 0 که N(x, ε) ∩ A = ∅</p>
-            <p>مجموعه نقاط بیرونی را Ext(A) می‌گویند.</p>
+                <div class="concept">
+        <h2>نقاط بیرونی یک مجموعه (Exterior Points)</h2>
+        
+        <div class="definition">
+            <strong>تعریف ریاضی دقیق:</strong><br>
+            نقطه x نقطه بیرونی مجموعه A است اگر نقطه درونی متمم A (یعنی A^c) باشد. به‌عبارت دیگر، وجود دارد δ>0 به‌طوری که بازه باز (x-δ, x+δ) کاملاً زیرمجموعه A^c باشد. مجموعه همه نقاط بیرونی را Exterior(A) می‌نامند.
+        </div>
+        
+        <div class="intuitive">
+            <strong>توضیح شهودی و ساده:</strong><br>
+            نقطه بیرونی جایی است که «کاملاً خارج» از مجموعه است و کمی فضای خالی اطرافش وجود دارد که همه آن فضا هنوز خارج از مجموعه باقی می‌ماند.
+        </div>
+        
+        <div class="example">
+            <strong>مثال:</strong><br>
+            برای A = [0,1] در فضای ℝ، نقاط بیرونی همه نقاطی هستند که یا کوچکتر از ۰ یا بزرگتر از ۱ باشند و فاصله‌شان از [0,1] مثبت باشد.<br>
+            مثلاً همه نقاط در (-∞,0) ∪ (1,+∞) نقاط بیرونی هستند.
+        </div>
+    </div>
             <img src="https://www.researchgate.net/publication/221471793/figure/fig1/AS:669062711484432@1536528389557/a-Illustrates-the-interior-boundary-and-exterior-point-sets-of-a-complex-region.png" alt="نقاط بیرونی">
         </section>
 
         <section id="boundary">
             <h2>نقاط مرزی (Boundary Points)</h2>
-            <p>نقطه x مرزی مجموعه A است اگر هر همسایگی از x هم نقطه‌ای از A و هم نقطه‌ای از خارج A داشته باشد.</p>
-            <p>به عبارت دیگر: ∀ ε > 0، N(x, ε) ∩ A ≠ ∅ و N(x, ε) ∩ (X\A) ≠ ∅</p>
+            <p>p را نقطه مرزی گویند هرگاه نه درونی نه بیرونی باشد به عبارت دیگر یعنی هر همسایگی در نقطه p باید هم A را قطع کندهم متمم A را. (P ممکن است عضو A باشد یا نباشد)</p>
+            <p>به عبارت دیگر: ∀ ε > 0; N(x, ε) ∩ A ≠ ∅ و N(x, ε) ∩ (X\A) ≠ ∅</p>
             <p>مجموعه نقاط مرزی را Bd(A) یا ∂A می‌گویند.</p>
             <img src="https://imaginaryfunctions.wordpress.com/wp-content/uploads/2013/11/topology.png" alt="نقاط مرزی در توپولوژی">
         </section>
@@ -74,7 +106,69 @@
 
         <section id="theorems">
             <h2>مسائل و قضایا</h2>
-            <p>۱. مجموعه باز: مجموعه‌ای است که همه نقاطش درونی باشند (A = Int(A)).</p>
+            
+
+    <div class="theorem">
+        <h2>قضیه:</h2>
+        <div class="formula">
+            \[ (\overline{A})^c = (A^c)^\circ \]
+        </div>
+        <p>متمم بستار مجموعهٔ \( A \) برابر است با نقاط درونی متمم مجموعهٔ \( A \).</p>
+    </div>
+
+    <div class="question">
+        <strong>سوال:</strong> دمین شریم \( (\overline{A})^c \) بین \( (A^c)^\circ \) شریم؟
+    </div>
+
+    <div class="answer">
+        <strong>پاسخ:</strong> بین \( (\overline{A})^c \) و \( (A^c)^\circ \).<br>
+        مثلاً \( \mathbb{N}(1) \subset A^c \) لذا \( B(\mathbb{N}(1), r) \subset A^c \)
+    </div>
+
+    <p>
+        \( A \subset B \) یعنی \( \forall x \in A \implies x \in B \)
+    </p>
+
+    <p class="note">
+        \* \( \forall A, B; \quad B \cap A = \emptyset \Leftrightarrow B \subseteq A^c \)
+    </p>
+
+    <div class="question">
+        <strong>سوال:</strong> بین \( B \cap A \) و \( B \cap A^c \) کدوم بزرگتره؟ (از نظر قدر مطلق)
+    </div>
+
+    <div class="answer">
+        چون \( B \cap A^c = B \subseteq A^c \)،<br>
+        بینان صلب: قدر \( B \cap A \) و \( B \cap A^c \) بینان صلب قدر \( B \).
+    </div>
+
+    <div class="question">
+        <strong>سوال:</strong> بین \( B \cap A \) و \( B \cap A^c \) کدوم بزرگتره؟
+    </div>
+
+    <div class="answer">
+        \( B \cap A^c \) بزرگتره (چون \( B \subseteq A^c \)).
+    </div>
+
+    <div class="question">
+        <strong>سوال:</strong> بین \( u \in A \)، \( u \in B \) یا \( u \in B \cap A \) کدام بزرگتره؟
+    </div>
+
+    <div class="answer">
+        \( u \in A^c \). لذا \( B \cap A = \emptyset \)،<br>
+        لذا بینان صلب با هم برابرن.
+    </div>
+
+    <p class="note">
+        \( X: u \in A^c \) یعنی با هم برابرن.
+    </p>
+
+    <h2>یادآوری علائم</h2>
+    <ul>
+        <li>\( \overline{A} \): بستار مجموعه \( A \)</li>
+        <li>\( A^c \): متمم مجموعه \( A \)</li>
+        <li>\( (A^c)^\circ \) یا \( \mathring{A^c} \): نقاط درونی (داخلی) متمم \( A \)</li>
+    </ul>
             <p>۲. مجموعه بسته: مجموعه‌ای است که مکملش باز باشد (یا همه نقاط مرزی‌اش داخل خودش باشد).</p>
             <p>۳. بسته شدن مجموعه (Closure): A ∪ Bd(A)</p>
             <p>۴. مثال: در خط واقعی، بازه (0,1) نقاط درونی دارد، نقاط ۰ و ۱ مرزی هستند و بقیه بیرونی.</p>

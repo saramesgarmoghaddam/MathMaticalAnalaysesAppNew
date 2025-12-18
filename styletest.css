@@ -1,7 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+@import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css');
 
 * {
-
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -9,21 +8,22 @@
 
 body {
   margin: 0;
-  font-family: Inter, sans-serif;
-  background-color: #ffffff;
-  color: #090c13;
+  font-family: 'Vazirmatn', sans-serif;
+  background: #0c0f20;
+  color: #ffffff;
+  direction: rtl;
 }
 
 .layout {
   display: grid;
-  grid-template-columns: 1fr 420px;
+  grid-template-columns: 1fr 420px; /* سمت چپ بزرگ، سمت راست کنترل‌ها */
   height: 100vh;
 }
 
-/* LEFT */
+/* LEFT: Visualization (سمت چپ بزرگ) */
 .visual-panel {
   padding: 32px;
-  background: #f7f9fc;
+  background: transparent;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -33,8 +33,13 @@ body {
 .space-info {
   margin-bottom: 16px;
   font-size: 30px;
-  color: #13d1d1;
+  color: #48c6ff;
   letter-spacing: 1px;
+  text-align: center;
+  background: linear-gradient(90deg, #48c6ff, #ff4fd8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .slider-nav {
@@ -49,27 +54,24 @@ body {
 
 .nav-btn {
   pointer-events: all;
-  background: rgba(9,187,187,0.1);
-  border: 2px solid #09bbbb;
-  color: #09bbbb;
+  background: rgba(16, 18, 40, 0.6);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #48c6ff;
   font-size: 20px;
   width: 60px;
   height: 60px;
   border-radius: 50%;
   cursor: pointer;
   transition: all 0.3s;
-  box-shadow: 
-    0 0 15px rgba(9,187,187,0.5),
-    0 0 30px rgba(9,187,187,0.3);
+  box-shadow: 0 0 30px rgba(72, 198, 255, 0.6);
 }
 
 .nav-btn:hover {
-  background: #09bbbb;
-  color: white;
+  background: linear-gradient(135deg, #48c6ff, #ff4fd8);
+  color: #0b0e1e;
   transform: scale(1.1);
-  box-shadow: 
-    0 0 25px rgba(9,187,187,0.8),
-    0 0 50px rgba(9,187,187,0.5);
+  box-shadow: 0 0 50px rgba(255, 78, 216, 0.8);
 }
 
 .canvas-wrapper {
@@ -86,91 +88,114 @@ body {
   max-width: 900px;
   max-height: 650px;
   aspect-ratio: 1 / 1;
-  background: #0b1324;
+  background: rgba(16, 18, 40, 0.6);
   border-radius: 40px;
   box-shadow: 
-    0 30px 60px rgba(0,0,0,0.18),
-    0 0 20px rgba(9,187,187,0.4),
-    0 0 40px rgba(9,187,187,0.3),
-    0 0 60px rgba(9,187,187,0.2);
-  border: 20px solid rgba(9,187,187,0.3);
+    0 30px 60px rgba(0,0,0,0.4),
+    0 0 40px rgba(72, 198, 255, 0.5),
+    0 0 80px rgba(255, 78, 216, 0.3);
+  border: 2px solid rgba(72, 198, 255, 0.4);
 }
 
-/* RIGHT */
+/* RIGHT: Controls & Analysis (کارت‌ها در سمت راست) */
 .analysis-panel {
   padding: 28px;
   overflow-y: auto;
-  background: #0b1324;
-  border-left: 1px solid #e6e9ef;
+  background: rgba(16, 18, 40, 0.55);
+  backdrop-filter: blur(20px);
+  border-right: 1px solid rgba(255, 255, 255, 0.18); /* مرز راست چون rtl است */
   box-shadow: 
-    0 0 20px rgba(9,187,187,0.4),
-    0 0 40px rgba(9,187,187,0.3),
-    0 0 60px rgba(9,187,187,0.2);
+    0 0 40px rgba(72, 198, 255, 0.4),
+    0 0 80px rgba(255, 78, 216, 0.3);
 }
 
 .card {
-  background: #b5b9ba;
-  border-radius: 16px;
-  padding: 20px;
+  background: rgba(16, 18, 40, 0.55);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 20px;
+  padding: 24px;
   margin-bottom: 24px;
-  box-shadow: 
-    0 8px 24px rgba(15,30,60,0.06),
-    0 0 15px rgba(30, 232, 232, 0.3),
-    0 0 30px rgba(9,187,187,0.2);
-  border: 1px solid rgba(9,187,187,0.2);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
 }
 
 .card h3 {
   margin-top: 0;
-  color: #3ab4b9;
+  margin-bottom: 12px;
+  font-size: 24px;
+  background: linear-gradient(90deg, #48c6ff, #ff4fd8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .hint {
-  font-size: 13px;
-  color: #555;
-  margin-bottom: 10px;
+  font-size: 15px;
+  color: #cdd5ff;
+  margin-bottom: 16px;
 }
 
 .slider-row {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
 }
 
-input[type=range] {
+input[type="range"] {
   flex: 1;
+  height: 10px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.15);
+  outline: none;
+  appearance: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #48c6ff, #ff4fd8);
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(255, 78, 216, 0.8);
 }
 
 .badge {
-  padding: 10px 14px;
-  border-radius: 12px;
+  padding: 12px 20px;
+  border-radius: 16px;
   font-weight: bold;
   text-align: center;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
+  font-size: 18px;
 }
 
 .badge.neutral {
-  background: #eaeef5;
+  background: rgba(255,255,255,0.1);
+  color: #cdd5ff;
 }
 
 .badge.interior {
-  background: #d4f3ef;
-  color: #137c74;
+  background: rgba(72, 198, 255, 0.3);
+  color: #48c6ff;
+  box-shadow: 0 0 20px rgba(72, 198, 255, 0.5);
 }
 
 .badge.boundary {
-  background: #fff1cc;
-  color: #8a6d00;
+  background: rgba(255, 78, 216, 0.3);
+  color: #ff4fd8;
+  box-shadow: 0 0 20px rgba(255, 78, 216, 0.5);
 }
 
 .badge.exterior {
-  background: #ffe1e1;
-  color: #a02c2c;
+  background: rgba(154, 107, 255, 0.3);
+  color: #9a6bff;
+  box-shadow: 0 0 20px rgba(154, 107, 255, 0.5);
 }
 
 .detail {
-  font-size: 14px;
-  color: #333;
+  font-size: 16px;
+  color: #cdd5ff;
+  line-height: 1.7;
 }
 
 .definitions {
@@ -178,50 +203,54 @@ input[type=range] {
   overflow-y: auto;
   overflow-x: auto;
   padding: 16px;
-  background: #b5b9ba;
-  box-shadow: 
-    0 0 15px rgba(9,187,187,0.3),
-    0 0 30px rgba(9,187,187,0.2);
-  border: 1px solid rgba(9,187,187,0.2);
+  background: rgba(16, 18, 40, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 16px;
 }
 
 .def-row {
-  margin-bottom: 20px;
+  margin-bottom: 24px;
   min-width: 420px;
 }
 
 .def-label {
   display: block;
-  font-weight: 600;
-  margin-bottom: 6px;
-  color: #0b5c6b;
-  direction: rtl;
-}
-
-#depthCard {
-    position: absolute;  /* شناور روی کانواس */
-    top: 610px;           /* فاصله از بالا */
-    right: 25px;         /* فاصله از راست */
-    width: 368px;        /* عرض مناسب */
-    padding: 25px;
-    background: #b5b9ba;
-     border: 1px solid rgba(9,187,187,0.2); /* شفافیت مناسب */
-  
-    border-radius: 10px;
-    z-index: 20;         /* روی کانواس */
-}
-#depthCard input[type="range"] {
-    width: 100%;
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 18px;
+  background: linear-gradient(90deg, #48c6ff, #ff4fd8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .math {
   direction: ltr;
   overflow-x: auto;
-  padding-bottom: 4px;
+  padding: 12px;
+  background: rgba(0,0,0,0.3);
+  border-radius: 12px;
+  font-size: 16px;
 }
 
-.math mjx-container {
-  font-size: 15px;
-  margin: 0;
-  white-space: nowrap;
+/* کارت عمق (شناور روی سمت چپ) */
+#depthCard {
+  position: absolute;
+  top: 610px;
+  left: 25px; /* چون rtl است، چپ یعنی سمت راست صفحه */
+  width: 368px;
+  padding: 25px;
+  background: rgba(16, 18, 40, 0.6);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 10px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+  z-index: 20;
+}
+
+#depthCard h3 {
+  background: linear-gradient(90deg, #48c6ff, #ff4fd8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
