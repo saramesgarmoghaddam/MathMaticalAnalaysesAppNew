@@ -48,9 +48,9 @@ nav {
     top: 20px;
     background: var(--glass-bg);
     backdrop-filter: blur(60px);
-    border: 1px solid var(--glass-border);
+    border: 5px solid var(--glass-border);
     border-radius: 30px;
-    padding: 15px;
+    padding: 1%;
     text-align: center;
     margin-bottom: 50px;
     z-index: 10;
@@ -61,7 +61,7 @@ nav a {
     color: var(--text-primary);
     text-decoration: none;
     margin: 0 12px;
-    padding: 10px 20px;
+    padding: 10px 10px;
     border-radius: 25px;
     background: rgba(255, 255, 255, 0.08);
     transition: all 0.3s ease;
@@ -144,6 +144,20 @@ img {
 
 html {
     scroll-behavior: smooth;
+}
+
+@font-face {
+    font-family: 'FarMorvarid';
+    src: url('fonts/FarMorvarid.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'FarMorvarid', sans-serif;
+    font-size: 40px;  /* بزرگ کن تا تغییر واضح باشه */
+    direction: rtl;
+    line-height: 2;   /* فاصله خطوط رو بیشتر کن */
 }
 
 @media (max-width: 768px) {
