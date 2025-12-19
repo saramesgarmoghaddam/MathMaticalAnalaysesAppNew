@@ -78,7 +78,7 @@ nav a:hover {
 }
 
 section {
-    min-height: 600px;  /* یا 800px بسته به محتوای بخش‌های قبلی */
+    min-height: 400px;  /* یا 800px بسته به محتوای بخش‌های قبلی */
     max-width: 1000px;
     background: var(--glass-bg);
     backdrop-filter: blur(200px);

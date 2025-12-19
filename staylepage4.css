@@ -50,26 +50,94 @@ body{
 }
 
 /* ===== Card ===== */
-.exercise{
-  position:relative;
-  background:var(--glass);
-  border:1px solid var(--border);
-  border-radius:18px;
-  padding:16px;
-  backdrop-filter:blur(14px);
-  box-shadow:0 10px 30px rgba(0,0,0,.35);
-  cursor:pointer;
-  transition:transform .3s, box-shadow .3s;
+.exercise.expanded {
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  width: 90% !important;
+  max-width: 960px !important;
+  height: auto !important;
+  max-height: 90vh !important;
+  margin-right: 15% !important; 
+  margin-top: -45vh !important;   /* نصف ارتفاع فعلی به بالا - دینامیک و دقیق */
+  z-index: 1001 !important;
+  background: rgba(8, 10, 25, 0.98) !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  border-radius: 18px !important;
+  padding: 28px !important;
+  box-sizing: border-box !important;
 }
 
-.exercise:hover{
-  transform:translateY(-6px);
-  box-shadow:0 18px 45px rgba(0,0,0,.5);
+/* ===== Card - جدا شدن بهتر از پس‌زمینه حتی بدون hover ===== */
+.exercise {
+  position: relative;
+  background: rgba(255, 255, 255, 0.08) !important;  /* همان شیشه‌ای قبلی */
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;  /* بوردر روشن‌تر و قوی‌تر برای جداسازی */
+  border-radius: 18px;
+  padding: 16px;
+  backdrop-filter: blur(16px) !important;  /* مات کردن قوی‌تر پس‌زمینه پشت کارت */
+  box-shadow: 
+    0 8px 25px rgba(32, 7, 123, 0.4),           /* سایه عمیق‌تر در حالت عادی */
+    0 0 15px rgba(245, 7, 209, 0.15) !important;  /* گلو نئونی آبی ملایم دور کارت */
+  cursor: pointer;
+  transition: all 0.3s ease !important;
 }
 
-.exercise h2{
+/* وقتی hover می‌کنی، قوی‌تر بشه (مثل الان اما بهتر) */
+.exercise:hover {
+  transform: translateY(-10px) !important;  /* بلند شدن بیشتر */
+  box-shadow: 
+    0 20px 50px rgba(0, 0, 0, 0.6),
+    0 0 25px rgba(244, 2, 204, 0.4) !important;  /* گلو نئونی قوی‌تر */
+  border-color: rgba(241, 6, 217, 0.5) !important;
+  background: rgba(255, 255, 255, 0.12) !important;  /* کمی روشن‌تر در hover */
+}
+
+.exercise.expanded .content-box,
+.exercise.expanded .instruction,
+.exercise.expanded .answer,
+.exercise.expanded .result-panel,
+.exercise.expanded h2{
   font-size:16px;
   margin-bottom:12px;
+}
+
+exercise.expanded {
+  font-size:18px;
+}
+
+.exercise.expanded h2 {
+  font-size:28px;
+  text-align:center;
+  margin-bottom:20px;
+}
+
+.exercise.expanded .content-box {
+  font-size:19px;
+  padding:20px;
+  height:auto;
+  min-height:150px;
+}
+
+.exercise.expanded .instruction {
+  font-size:17px;
+}
+
+.exercise.expanded .answer {
+  font-size:17px;
+  padding:15px;
+  background:rgba(0,0,0,0.3);
+  border-radius:10px;
+}
+
+/* برای تمرین 1 که ساختار متفاوتی دارد (باکس‌ها و canvas) */
+.exercise.expanded .main-panel {
+  direction:rtl;
+}
+
+.exercise.expanded .boxes-panel .box {
+  font-size:16px;
 }
 
 .content-box{
