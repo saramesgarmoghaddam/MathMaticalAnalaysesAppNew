@@ -43,19 +43,19 @@
 
 <ol>
 <li><strong>متریک اقلیدسی (فاصله اقلیدسی):</strong>
-   <p>\[ d_e(u, v) = \sqrt{(x_1 - y_1)^2 + (x_2 - y_2)^2 + \cdots + (x_n - y_n)^2} = \sqrt{\sum_{i=1}^n (x_i - y_i)^2} \]</p>
+<li>\[ d_e(u, v) = \sqrt{(x_1 - y_1)^2 + (x_2 - y_2)^2 + \cdots + (x_n - y_n)^2} = \sqrt{\sum_{i=1}^n (x_i - y_i)^2} \]</li>
   <p>که در آن \( u = (x_1, \dots, x_n) \) و \( v = (y_1, \dots, y_n) \).</p></li>
 
 <li><strong>متریک منهتن (فاصله منهتن):</strong>
-   <p>\[ d_1(u, v) = \sum_{i=1}^n |x_i - y_i| \]</p>
+   <li>\[ d_1(u, v) = \sum_{i=1}^n |x_i - y_i| \]</li>
     <p>که در آن \( u = (x_1, \dots, x_n) \) و \( v = (y_1, \dots, y_n) \).</p></li>
 
 <li><strong>متریک چبیشف (فاصله چبیشف):</strong>
-   <p>\[ d_m(u, v) = \max_{1 \leq i \leq n} |x_i - y_i| \]</p>
+   <li>\[ d_m(u, v) = \max_{1 \leq i \leq n} |x_i - y_i| \]</li>
     <p>که در آن \( u = (x_1, \dots, x_n) \) و \( v = (y_1, \dots, y_n) \).</p></li>
 
 <li><strong>متریک مینکوفسکی (فاصله مینکوفسکی):</strong>
-   <p>\[ d_p(u, v) = \left( \sum_{i=1}^n |x_i - y_i|^p \right)^{1/p} \]</p>
+   <li>\[ d_p(u, v) = \left( \sum_{i=1}^n |x_i - y_i|^p \right)^{1/p} \]</li>
     <p>که در آن \( u = (x_1, \dots, x_n) \) و \( v = (y_1, \dots, y_n) \).</p>
 <p>نکته:برای \( p = 2 \) دقیقاً متریک اقلیدسی به دست می‌آید.</p></li>
 </ol>
@@ -65,14 +65,14 @@
 <p>یکی از مهم ترین فضاهای متریک  ، فضای متریک گسسته است.</p>
 <p>فرض کنید \( X \neq \emptyset \) یک مجموعه دلخواه باشد. تابع زیر را تابع فاصله d تعریف می کنیم:</p>
 
-<p>\[ d(x, y) = \begin{cases} 
+<li>\[ d(x, y) = \begin{cases} 
 0 & \text{} x = y \\
 1 & \text{} x \neq y 
-\end{cases} \]</p>
+\end{cases} \]</li>
 
 <p>آنگاه \( d \) یک متریک روی \( X \) است و به آن <strong>متریک گسسته</strong> (یا متریک جدا) گفته می‌شود.</p>
 <p>------------------------------------------------------</p>
-<p>برای کسب اطلاعات بیشتر درباره فضاهای متریک و یادگیری عمیق تر به ادرس زیر مراجعه کنید.</p>
+<li>برای کسب اطلاعات بیشتر درباره فضاهای متریک و یادگیری عمیق تر به ادرس زیر مراجعه کنید.</li>
 <a href="https://metric-spaces.netlify.app">https://metric-spaces.netlify.app</a>
 
         </section>
@@ -81,7 +81,7 @@
             <h2>همسایگی یک نقطه (Neighborhood)</h2>
             <p>همسایگی یک نقطه مانند P با شعاع r مجموعه تمام نقاطی است که از نقطه p به اندازه کمتر از r فاصله دارند.</p>
             <p>همسایگی به مرکز p ∈ X و شعاع r > 0 عبارت است از:</p>
-            <p>N(p , r) = { q ∈ x | d(p , q) < r }</p>
+            <li>N(p , r) = { q ∈ x | d(p , q) < r }</li>
             <p>\(N_r(p)\) نشان دهنده همسایگی نقطه p به شعاع r است.
                  <img src="Image/Neighborhood.png" alt="my-img">
             </p>
@@ -96,7 +96,7 @@
         <div class="definition">
             <strong>تعریف:</strong><br>
             <p> فرض کنید (X , d) یک فضای متریک باشد ، p ∈ X , A ⊆ X.</p>
-            <p>هر نقطه را نقطه درونی A گوییم هرگاه :<p>\[ \exists r > 0 : \quad N_r(p) \subseteq A \]</p><img src="Image/inner.png" alt="نقاط درونی، بیرونی و مرزی"></p>
+            <p>هر نقطه را نقطه درونی A گوییم هرگاه :<li>\[ \exists r > 0 : \quad N_r(p) \subseteq A \]</li><img src="Image/inner.png" alt="نقاط درونی، بیرونی و مرزی"></p>
            
         </div>
         
@@ -125,7 +125,7 @@
             <strong>تعریف:</strong><br>
            <p><p>(۲) اگر \( p \) را نقطه بیرونی \( A \) می‌نامیم اگر که \( p \) نقطه درونی \( A^c \) باشد. یعنی:</p>
 
-<p>\[ \exists r > 0 : \quad N_r(p) \subseteq A^c \quad \text{OR} \quad N_r(p) \cap A = \emptyset \] <img src="Image/outer.png" alt="نقاط بیرونی"></p>
+<li>\[ \exists r > 0 : \quad N_r(p) \subseteq A^c \quad \text{OR} \quad N_r(p) \cap A = \emptyset \] <img src="Image/outer.png" alt="نقاط بیرونی"></li>
         </div>
         
         <div class="intuitive">
@@ -145,7 +145,7 @@
         <section id="boundary">
             <h2>نقاط مرزی (Boundary Points)</h2>
             <p>p را نقطه مرزی گویند هرگاه نه درونی نه بیرونی باشد به عبارت دیگر یعنی هر همسایگی در نقطه p باید هم A را قطع کندهم متمم A را. (P ممکن است عضو A باشد یا نباشد)یعنی:</p>
-            <p>\[ \forall r > 0 : \quad N_r(p) \not\subseteq A \quad \& \quad N_r(p) \not\subseteq A^c \]<img src="Image/bonder.png" alt="نقاط مرزی در توپولوژی"></p>
+            <li>\[ \forall r > 0 : \quad N_r(p) \not\subseteq A \quad \& \quad N_r(p) \not\subseteq A^c \]<img src="Image/bonder.png" alt="نقاط مرزی در توپولوژی"></li>
 
                    <div class="intuitive">
             <strong>توضیح شهودی و ساده:</strong><br>
@@ -156,91 +156,35 @@
             <strong>مثال:</strong><br>
            <p>برای A = (0,1)، نقاط مرزی ۰ و ۱ هستند.</p>
            <p>برای A = [0,1] نیز نقاط مرزی همچنان ۰ و ۱ هستند.</p>
-            <img src="Image/inner2.png" alt="نقطه درونی با همسایگی">
+            <img src="Image/inner2.png" alt="نقطه مرزی">
         </div>
-    </div>
+    
         </section>
 
         <section id="closure">
             <h2>بستار یک مجموعه (Closure)</h2>
-            <p>بستار مجموعه A برابر است با A ∪ Bd(A)</p>
-            <p>یعنی مجموعه به همراه تمام نقاط مرزی‌اش.</p>
+<p>فرض کنید \((X, d)\) یک فضای متریک و \( A \subseteq X \) باشد.</p>
+
+<p><strong>تعریف:</strong> بستار \( A \) (که با \( \overline{A} \) یا \( \operatorname{Cl}(A) \) نشان داده می‌شود) برابر است با اتحاد \( A \) و مجموعه نقاط مرزی آن:</p>
+
+<p>\[ \overline{A} = A \cup \partial A \]</p>
+
+<p>به عبارت دیگر، بستار \( A \) شامل همه نقاط خود \( A \) به علاوه همه نقاط مرزی \( A \) است.</p>
+
+<h4>چرا این تعریف درست است؟</h4>
+
+<ul>
+<li>هر نقطه‌ای که در \( A \) است، یا نقطه داخلی است یا نقطه مرزی، پس در \( A \cup \partial A \) قرار دارد.</li>
+<li>هر نقطه مرزی \( \partial A \) طوری است که هر توپ باز اطرافش هم به \( A \) می‌خورد و هم به مکمل \( A \)، بنابراین نمی‌تواند نقطه بیرونی باشد.</li>
+<li>نقاط بیرونی \( A \) (یعنی نقاطی که توپ بازی کاملاً خارج از \( A \) دارند) نه در \( A \) هستند و نه مرزی، پس در بستار نیستند.</li>
+</ul>
         </section>
 
         <section id="theorems">
             <h2>مسائل و قضایا</h2>
-            
-
-    <div class="theorem">
-        <h2>قضیه:</h2>
-        <div class="formula">
-            \[ (\overline{A})^c = (A^c)^\circ \]
-        </div>
-        <p>متمم بستار مجموعهٔ \( A \) برابر است با نقاط درونی متمم مجموعهٔ \( A \).</p>
+         </section>
     </div>
-
-    <div class="question">
-        <strong>سوال:</strong> دمین شریم \( (\overline{A})^c \) بین \( (A^c)^\circ \) شریم؟
-    </div>
-
-    <div class="answer">
-        <strong>پاسخ:</strong> بین \( (\overline{A})^c \) و \( (A^c)^\circ \).<br>
-        مثلاً \( \mathbb{N}(1) \subset A^c \) لذا \( B(\mathbb{N}(1), r) \subset A^c \)
-    </div>
-
-    <p>
-        \( A \subset B \) یعنی \( \forall x \in A \implies x \in B \)
-    </p>
-
-    <p class="note">
-        \* \( \forall A, B; \quad B \cap A = \emptyset \Leftrightarrow B \subseteq A^c \)
-    </p>
-
-    <div class="question">
-        <strong>سوال:</strong> بین \( B \cap A \) و \( B \cap A^c \) کدوم بزرگتره؟ (از نظر قدر مطلق)
-    </div>
-
-    <div class="answer">
-        چون \( B \cap A^c = B \subseteq A^c \)،<br>
-        بینان صلب: قدر \( B \cap A \) و \( B \cap A^c \) بینان صلب قدر \( B \).
-    </div>
-
-    <div class="question">
-        <strong>سوال:</strong> بین \( B \cap A \) و \( B \cap A^c \) کدوم بزرگتره؟
-    </div>
-
-    <div class="answer">
-        \( B \cap A^c \) بزرگتره (چون \( B \subseteq A^c \)).
-    </div>
-
-    <div class="question">
-        <strong>سوال:</strong> بین \( u \in A \)، \( u \in B \) یا \( u \in B \cap A \) کدام بزرگتره؟
-    </div>
-
-    <div class="answer">
-        \( u \in A^c \). لذا \( B \cap A = \emptyset \)،<br>
-        لذا بینان صلب با هم برابرن.
-    </div>
-
-    <p class="note">
-        \( X: u \in A^c \) یعنی با هم برابرن.
-    </p>
-
-    <h2>یادآوری علائم</h2>
-    <ul>
-        <li>\( \overline{A} \): بستار مجموعه \( A \)</li>
-        <li>\( A^c \): متمم مجموعه \( A \)</li>
-        <li>\( (A^c)^\circ \) یا \( \mathring{A^c} \): نقاط درونی (داخلی) متمم \( A \)</li>
-    </ul>
-            <p>۲. مجموعه بسته: مجموعه‌ای است که مکملش باز باشد (یا همه نقاط مرزی‌اش داخل خودش باشد).</p>
-            <p>۳. بسته شدن مجموعه (Closure): A ∪ Bd(A)</p>
-            <p>۴. مثال: در خط واقعی، بازه (0,1) نقاط درونی دارد، نقاط ۰ و ۱ مرزی هستند و بقیه بیرونی.</p>
-            <img src="https://i.ytimg.com/vi/AW7-CTLP-nM/maxresdefault.jpg" alt="خلاصه نقاط درونی، بیرونی و مرزی">
-        </section>
-
-        <a href="test.html" class="next-btn">بعدی: شکل های بصری برای یادگیری عمیق</a>
-    </div>
-
+    
     <!-- اسکریپت p5.js برای پس‌زمینه متحرک -->
     <script src="jspage2.js"></script>
 </body>

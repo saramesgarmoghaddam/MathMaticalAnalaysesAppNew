@@ -10,11 +10,14 @@
 
 body {
     margin: 0;
-    font-family: 'Vazirmatn', sans-serif;
+    font-family: 'FarMorvarid', sans-serif;
     background: #0c0f20;
     color: var(--text-primary);
     min-height: 100vh;
     overflow-x: hidden;
+    direction: rtl;
+    font-size: 18px;
+    line-height: 2; 
 }
 
 #canvasBg {
@@ -75,14 +78,23 @@ nav a:hover {
 }
 
 section {
-    margin: 60px 0;
-    padding: 30px;
+    min-height: 600px;  /* یا 800px بسته به محتوای بخش‌های قبلی */
+    max-width: 1000px;
     background: var(--glass-bg);
     backdrop-filter: blur(200px);
-    border: 5px solid var(--glass-border);
+    border: 5px solid var(--glass-border);  /* مثل .container */
     border-radius: 30px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    margin: 60px auto;
+    padding: 40px 30px 40px 40px;  /* این وسط قرار می‌ده، auto مهم هست */
+    width: 100%;        /* یا calc(100% - 80px) اگر padding داری */
+    box-sizing: border-box;
 }
+
+section + section {
+    margin-top: 60px;  /* فاصله دقیق بین کادرها */
+}
+
+
 
 h2 {
     font-size: 28px;
@@ -152,14 +164,6 @@ html {
     font-weight: normal;
     font-style: normal;
 }
-
-body {
-    font-family: 'FarMorvarid', sans-serif;
-    font-size: 40px;  /* بزرگ کن تا تغییر واضح باشه */
-    direction: rtl;
-    line-height: 2;   /* فاصله خطوط رو بیشتر کن */
-}
-
 
 @media (max-width: 768px) {
     .container { margin: 20px; padding: 20px; }
