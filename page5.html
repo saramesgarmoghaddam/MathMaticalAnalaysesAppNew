@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>کوییز: نقاط درونی، مرزی و بیرونی</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  <style>
+    @import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css');
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Vazirmatn', sans-serif;
+      background: #0c0f20;
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #canvasBg {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+    }
+
+    .quiz-container {
+      max-width: 800px;
+      width: 90%;
+      background: rgba(16, 18, 40, 0.55);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 30px;
+      padding: 40px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 36px;
+      margin-bottom: 40px;
+      background: linear-gradient(90deg, #48c6ff, #ff4fd8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .question-number {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #48c6ff;
+    }
+
+    .question-text {
+      font-size: 22px;
+      margin-bottom: 30px;
+      line-height: 1.8;
+      color: #cdd5ff;
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 30px;
+    }
+
+    .option {
+      padding: 18px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 20px;
+      font-size: 20px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .option:hover {
+      background: rgba(255,255,255,0.15);
+      transform: translateY(-4px);
+    }
+
+    .option.correct {
+      background: rgba(72, 198, 255, 0.4);
+      border-color: #48c6ff;
+      box-shadow: 0 0 20px rgba(72, 198, 255, 0.6);
+    }
+
+    .option.wrong {
+      background: rgba(255, 78, 216, 0.4);
+      border-color: #ff4fd8;
+      box-shadow: 0 0 20px rgba(255, 78, 216, 0.6);
+    }
+
+    .feedback {
+      font-size: 20px;
+      margin: 30px 0;
+      padding: 20px;
+      border-radius: 20px;
+      min-height: 80px;
+    }
+
+    .feedback.correct {
+      background: rgba(72, 198, 255, 0.3);
+      color: #48c6ff;
+    }
+
+    .feedback.wrong {
+      background: rgba(255, 78, 216, 0.3);
+      color: #ff4fd8;
+    }
+
+    .next-btn {
+      padding: 16px 40px;
+      background: linear-gradient(135deg, #48c6ff, #ff4fd8);
+      color: #0b0e1e;
+      font-size: 20px;
+      font-weight: bold;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 10px 30px rgba(255, 78, 216, 0.4);
+      transition: 0.3s;
+    }
+
+    .next-btn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(255, 78, 216, 0.6);
+    }
+
+    .progress {
+      margin-top: 30px;
+      font-size: 18px;
+      color: #cdd5ff;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="canvasBg"></canvas>
+
+  <div class="quiz-container">
+    <h1>کوییز: نقاط درونی، مرزی و بستار</h1>
+
+    <div id="quiz">
+      <div class="question-number" id="questionNumber"></div>
+      <div class="question-text" id="questionText"></div>
+
+      <div class="options" id="options"></div>
+
+      <div class="feedback hidden" id="feedback"></div>
+
+      <button class="next-btn hidden" id="nextBtn">سؤال بعدی</button>
+
+      <div class="progress" id="progress"></div>
+    </div>
+  </div>
+
+  <script>
+    const questions = [
+      {
+        question: "اگر A = (0,1) ⊂ ℝ باشد، کدام گزینه یک نقطه درونی A است؟",
+        options: ["الف) ۰", "ب) ۱", "ج) ۰.۵", "د) −۱"],
+        correct: 2,
+        explanation: "نقطه ۰.۵ داخل بازه باز (0,1) است و می‌توان همسایگی کوچکی اطراف آن یافت که کاملاً داخل A باشد. نقاط ۰ و ۱ مرزی و −۱ بیرونی هستند."
+      },
+      {
+        question: "اگر A = [0,1) باشد، کدام نقطه مرزی A است؟",
+        options: ["الف) ۰.۵", "ب) −۱", "ج) ۰", "د) ۲"],
+        correct: 2,
+        explanation: "نقطه ۰ هم در A است و هر همسایگی آن هم داخل و هم خارج A را شامل می‌شود (چون A نیمه‌باز است). نقطه ۱ هم مرزی است اما در گزینه‌ها نیست."
+      },
+      {
+        question: "کدام گزینه در مورد بستار مجموعه A صحیح است؟",
+        options: ["الف) \\bar{A} ⊂ A", "ب) A ⊂ \\bar{A}", "ج) \\bar{A} = ∅", "د) \\bar{A} ∩ A = ∅"],
+        correct: 1,
+        explanation: "بستار کوچک‌ترین مجموعه بسته حاوی A است، بنابراین همیشه A زیرمجموعه بستار خودش است."
+      },
+      {
+        question: "اگر نقطه p نه درونی A باشد و نه بیرونی A، آنگاه p چه نوع نقطه‌ای است؟",
+        options: ["الف) نقطه درونی", "ب) نقطه بیرونی", "ج) نقطه مرزی", "د) نقطه ایزوله"],
+        correct: 2,
+        explanation: "اگر p نه درونی باشد و نه بیرونی، یعنی هر همسایگی آن هم با A و هم با متمم A اشتراک دارد → نقطه مرزی."
+      },
+      {
+        question: "اگر برای هر همسایگی N(p) داشته باشیم N(p) ∩ A = ∅، آنگاه p:",
+        options: ["الف) نقطه درونی A است", "ب) نقطه مرزی A است", "ج) نقطه بیرونی A است", "د) نقطه حدی A است"],
+        correct: 2,
+        explanation: "اگر هیچ همسایگی p با A اشتراک نداشته باشد، یعنی یک همسایگی کاملاً در متمم A وجود دارد → p نقطه بیرونی است."
+      },
+      {
+        question: "اگر A = ℚ ⊂ ℝ، بستار A کدام است؟",
+        options: ["الف) ℚ", "ب) ℝ", "ج) ∅", "د) ℤ"],
+        correct: 1,
+        explanation: "اعداد گویا در اعداد حقیقی متراکم هستند؛ هر عدد حقیقی حد دنباله‌ای از اعداد گویا است → بستار ℚ برابر ℝ است."
+      },
+      {
+        question: "کدام رابطه همیشه درست است؟",
+        options: ["الف) نقاط درونی ⊆ نقاط مرزی", "ب) نقاط مرزی ⊆ بستار", "ج) نقاط بیرونی ⊆ بستار", "د) بستار ⊆ نقاط بیرونی"],
+        correct: 1,
+        explanation: "نقاط مرزی همیشه در بستار مجموعه قرار دارند (بستار = درونی ∪ مرزی)."
+      },
+      {
+        question: "اگر p ∈ A و p نقطه حدی A باشد، آنگاه p:",
+        options: ["الف) الزاماً درونی است", "ب) الزاماً مرزی است", "ج) در بستار A قرار دارد", "د) بیرونی است"],
+        correct: 2,
+        explanation: "نقطه حدی (حد) همیشه در بستار مجموعه قرار دارد، حتی اگر داخل مجموعه باشد."
+      },
+      {
+        question: "برای مجموعه بسته A، کدام گزینه درست است؟",
+        options: ["الف) A ≠ \\bar{A}", "ب) \\bar{A} = A", "ج) A هیچ نقطه مرزی ندارد", "د) A هیچ نقطه حدی ندارد"],
+        correct: 1,
+        explanation: "تعریف مجموعه بسته: A = \\bar{A} (شامل همه نقاط حدی خودش است)."
+      },
+      {
+        question: "اگر p ∈ ∂A (مرز A) باشد، کدام گزاره درست است؟",
+        options: ["الف) همه همسایگی‌های p در A هستند", "ب) همه همسایگی‌های p بیرون A هستند", "ج) هر همسایگی p هم با A و هم با متمم A اشتراک دارد", "د) p الزاماً درونی است"],
+        correct: 2,
+        explanation: "تعریف مرز: هر همسایگی نقطه مرزی هم با مجموعه و هم با متمم آن اشتراک غیرتهی دارد."
+      }
+    ];
+
+    let currentQuestion = 0;
+    let score = 0;
+
+    const questionNumberEl = document.getElementById('questionNumber');
+    const questionTextEl = document.getElementById('questionText');
+    const optionsEl = document.getElementById('options');
+    const feedbackEl = document.getElementById('feedback');
+    const nextBtn = document.getElementById('nextBtn');
+    const progressEl = document.getElementById('progress');
+
+    function loadQuestion() {
+      const q = questions[currentQuestion];
+      questionNumberEl.textContent = `سؤال ${currentQuestion + 1} از ${questions.length}`;
+      questionTextEl.innerHTML = q.question;
+      progressEl.textContent = `امتیاز: ${score} / ${questions.length}`;
+
+      optionsEl.innerHTML = '';
+      q.options.forEach((option, index) => {
+        const btn = document.createElement('div');
+        btn.className = 'option';
+        btn.textContent = option;
+        btn.onclick = () => selectOption(index, q.correct, q.explanation);
+        optionsEl.appendChild(btn);
+      });
+
+      feedbackEl.classList.add('hidden');
+      nextBtn.classList.add('hidden');
+    }
+
+    function selectOption(selected, correct, explanation) {
+      const options = optionsEl.children;
+      for (let btn of options) {
+        btn.style.pointerEvents = 'none';
+        if (parseInt(btn.dataset.index) === correct) btn.classList.add('correct');
+        if (parseInt(btn.dataset.index) === selected && selected !== correct) btn.classList.add('wrong');
+      }
+
+      if (selected === correct) {
+        score++;
+        feedbackEl.textContent = "درست! 👍 " + explanation;
+        feedbackEl.classList.remove('wrong');
+        feedbackEl.classList.add('correct');
+      } else {
+        feedbackEl.textContent = "غلط! ❌ جواب درست: " + questions[currentQuestion].options[correct] + " — " + explanation;
+        feedbackEl.classList.remove('correct');
+        feedbackEl.classList.add('wrong');
+      }
+
+      feedbackEl.classList.remove('hidden');
+      nextBtn.classList.remove('hidden');
+      progressEl.textContent = `امتیاز: ${score} / ${questions.length}`;
+    }
+
+    nextBtn.onclick = () => {
+      currentQuestion++;
+      if (currentQuestion < questions.length) {
+        loadQuestion();
+      } else {
+        questionTextEl.textContent = "کوییز تمام شد!";
+        questionNumberEl.textContent = `امتیاز نهایی: ${score} از ${questions.length}`;
+        optionsEl.innerHTML = '';
+        feedbackEl.classList.add('hidden');
+        nextBtn.textContent = "تمام";
+        nextBtn.disabled = true;
+      }
+    };
+
+    // شروع کوییز
+    loadQuestion();
+  </script>
+
+  <!-- پس‌زمینه نئونی مثل صفحات قبلی (اختیاری، اگر bg-animation.js داری) -->
+  <!-- <script src="bg-animation.js"></script> -->
+</body>
+</html>

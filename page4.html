@@ -55,18 +55,19 @@
   <button class="close-btn" onclick="closeExercise(event)">✕</button>
   <h2>تمرین 2</h2>
   <div class="content-box">
-    مجموعه A = (0,1) ∪ {2}  را در فضای متریک یک بعدی نظر بگیرید.
-   <br> الف)نقاط داخلی، بیرونی، مرزی و بستار Aرا بیابید. 
-   <br>ب)همچنین نشان دهید که A° ≠ Ā .</br> 
+   <p->مجموعه A = (0,1) ∪ {2}  را در فضای متریک \(\mathbb{R}\) نظر بگیرید.</p> 
+   <p-> الف)نقاط داخلی، بیرونی، مرزی و بستار Aرا بیابید.</p>  
+   <p->ب)همچنین نشان دهید که A° ≠ Ā .</p> 
   </div>
   <button class="answer-btn" onclick="toggleAnswer(event,this)">دیدن پاسخ</button>
   <div class="answer">
     پاسخ:  
-    - Interior(A) = (0,1)  
-    - Exterior(A) = (-∞,0) ∪ (1,2) ∪ (2,∞)  
-    - Boundary(A) = {0,1,2}  
-    - Closure(A) = [0,1] ∪ {2}  
-    و بنابراین 𝑖𝑛𝑡(A)̄ = [0,1] ≠ Ā.
+    <img src="Image/Q2.png">
+    <p>- A° = (0,1) </p> 
+    <p>- Ext(A) = (-∞,0) ∪ (1,2) ∪ (2,∞)</p>
+    <p>- {0,1,2} =  (A)∂</p>  
+    <p>- [0,1] ∪ {2} = \(\overline{A} \) </p> 
+    <p> و بنابراین A° = (0,1) ≠ [0,1] = Ā.</p>
   </div>
 </div>
 
@@ -75,18 +76,17 @@
   <button class="close-btn" onclick="closeExercise(event)">✕</button>
   <h2>تمرین 3</h2>
   <div class="content-box">
-    A = {(x,y) | x²+y² < 1} ∪ {(2,0)}  (توپ باز واحد به علاوه یک نقطه ایزوله).
+    A = {(x,y) | x²+y² < 1} ∪ {(2,0)}  (دایره باز واحد به علاوه یک نقطه ایزوله).
    <br> نقاط داخلی، بیرونی، مرزی و بستار را تعیین کنید. </br>
-    آیا مرز A بسته است؟
   </div>
   <button class="answer-btn" onclick="toggleAnswer(event,this)">دیدن پاسخ</button>
   <div class="answer">
     پاسخ:  
-    - Interior(A) = {(x,y) | x²+y² < 1}  
-    - Exterior(A) = {(x,y) | x²+y² > 1, (x,y) ≠ (2,0)}  
-    - Boundary(A) = {(x,y) | x²+y² = 1} ∪ {(2,0)}  
-    - Closure(A) = {(x,y) | x²+y² ≤ 1} ∪ {(2,0)}  
-    مرز A بسته است چون شامل دایره واحد (بسته) و نقطه ایزوله (بسته) است.
+    <img src="Image/Q3.png">
+    <p>- A° = {(x,y) | x²+y² < 1}</p> 
+    <p>- Ext(A) = {(x,y) | x²+y² > 1, (x,y) ≠ (2,0)}  </p>
+    <p>- {(x,y) | x²+y² = 1} ∪ {(2,0)} = (A)∂</p>
+    <p>- Ā = {(x,y) | x²+y² ≤ 1} ∪ {(2,0)}  </p>
   </div>
 </div>
 
@@ -95,9 +95,9 @@
   <button class="close-btn" onclick="closeExercise(event)">✕</button>
   <h2>تمرین 4</h2>
   <div class="content-box">
-    A = [-1,1] × {0}  (خط افقی بسته روی محور x از -۱ تا ۱) را در \(\mathbb{R}^2\) در نظر بگیرید.
-    الف) با متریک اقلیدسی معمول، نقاط داخلی، مرزی و بستار A را بیابید.  
-    ب) همان مجموعه را با متریک گسسته بررسی کنید.
+   <p-> A = [-1,1] × {0} را در فضای متریک \(\mathbb{R} ^ 2\) در نظر بگیرید.</p>
+   <p->الف) با متریک اقلیدسی معمول، نقاط داخلی، مرزی و بستار A را بیابید. </p> 
+   <p-> ب) همان مجموعه را با متریک گسسته بررسی کنید.</p>
   </div>
   <button class="answer-btn" onclick="toggleAnswer(event,this)">دیدن پاسخ</button>
   <div class="answer">
@@ -110,7 +110,7 @@
 
 <div class="exercise" onclick="openExercise(this)">
   <button class="close-btn" onclick="closeExercise(event)">✕</button>
-  <h2>تمرین سری پنجم - مجموعه‌های خاص</h2>
+  <h2>تمرین 5</h2>
   <div class="content-box">
     A = ℚ ∩ [0,1]  
     الف) نشان دهید int(A) = ∅ و Ā = [0,1].  
