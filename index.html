@@ -3,70 +3,278 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>کاوش در مجموعه‌ها</title>
-  <link rel="stylesheet" href="StyleOfFirstPage.css">
-  <!-- فونت فارسی -->
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;700&display=swap" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <title>MathVision</title>
+
+  <!-- Vazirmatn -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
+
+  <!-- p5.js -->
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
+
+  <style>
+    :root {
+      --glass-bg: rgba(16,18,40,0.55);
+      --glass-border: rgba(255,255,255,0.18);
+      --text-primary: #fff;
+      --text-secondary: #cdd5ff;
+      --blue: #48c6ff;
+      --pink: #ff4fd8;
+      --purple: #9a6bff;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Vazirmatn', sans-serif;
+      background: #0c0f20;
+      color: var(--text-primary);
+      overflow-x: hidden;
+    }
+
+    /* App layout */
+    .app {
+      max-width: 1100px;
+      margin: 80px auto;
+      padding: 40px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* header */
+    .header {
+      margin-bottom: 50px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 6px 16px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.08);
+      color: var(--text-secondary);
+      font-size: 14px;
+    }
+
+    .title {
+      font-size: 42px;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+
+    .title span {
+      background: linear-gradient(135deg, var(--blue), var(--pink));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle {
+      margin-top: 15px;
+      max-width: 700px;
+      font-size: 17px;
+      line-height: 1.9;
+      color: var(--text-secondary);
+    }
+
+    /* menu */
+    .menu {
+      margin-top: 60px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+    }
+
+    .card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(22px);
+      border: 5px solid var(--glass-border);
+      border-radius: 30px;
+      padding: 28px;
+      transition: 0.35s;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      background: linear-gradient(135deg, #48c6ff, #ff4fd8);
+      transform: translateY(-6px);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+    }
+
+    .icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      font-weight: bold;
+      color: #0b0e1e;
+      margin-bottom: 14px;
+    }
+
+    .blue { background: linear-gradient(135deg, var(--blue), #a7ecff); }
+    .pink { background: linear-gradient(135deg, var(--pink), #ff9ae8); }
+    .purple { background: linear-gradient(135deg, var(--purple), #c5b1ff); }
+
+    .card h3 {
+      margin: 0 0 8px;
+      font-size: 20px;
+    }
+
+    a.card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+a.card:hover {
+  transform: translateY(-4px);
+}
+
+
+    .card p {
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--text-secondary);
+    }
+
+       .hint {
+      text-align: center;
+      margin-top: 35px;
+      font-size: 30px;
   
+      opacity: 0.8;
+    }
+
+    /* mobile */
+    @media (max-width: 768px) {
+      .app {
+        padding: 25px;
+        margin: 40px auto;
+      }
+      .title { font-size: 30px; }
+      .menu { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
+
 <body>
-  <!-- پس‌زمینه -->
-  <div class="bg"></div>
-  <div class="particles"></div>
 
-  <!-- پنل اصلی -->
-  <main class="glass">
-    <header>
-      <div class="kicker">کاوش در توپولوژی</div>
-      <h1 class="title">
-        <span class="orb"></span>
-        نقاط درونی، بیرونی و مرزی
-      </h1>
-      <p class="subtitle">
-        یک رابط بصری برای یادگیری مفاهیم بنیادی آنالیز ریاضی و توپولوژی.
-      </p>
-    </header>
+<div class="app">
+  <div class="header">
+    <div class="badge">✨ یادگیری مفهومی توپولوژی</div>
+    <div class="title">به <span>MathVision</span> خوش اومدی</div>
+    <div class="subtitle">
+      مفاهیم توپولوژی رو در فضای متریک، با تصویر، حرکت و درک شهودی یاد بگیر.
+      اینجا توپولوژی زنده است.
+    </div>
+  </div>
 
-    <section class="grid">
-      <article class="card">
-        <div class="card-header">
-          <span class="badge blue"></span>
-          <h2 class="card-title">مجموعه‌های باز</h2>
-        </div>
-        <p class="card-body">
-          عناصر توپولوژیک که همسایگی کاملشان در مجموعه قرار دارد.
-        </p>
-      </article>
+  <div class="menu">
+    <a href="page2.html" class="card"><div class="icon blue">≡</div><h3>مفاهیم پایه</h3><p>تعریف‌ها و ساختارهای بنیادی</p></a>
+    <a href="videospage.html" class="card"><div class="icon pink">▶</div><h3>ویدیو های آموزشی</h3><p>آموزش تصویری + قضایا</p></a>
+    <a href="test.html" class="card"><div class="icon purple">◯</div><h3>شکل های بصری</h3><p>بازی با فضا و مفاهیم بصری</p></a>
+    <a href="page4.html" class="card"><div class="icon blue">✦</div><h3>تمرین </h3><p>تمرین و تثبیت یادگیری</p></a>
+    <a href="page5.html" class="card"><div class="icon pink">✓</div><h3>آزمون</h3><p>آزمون و ارزیابی پیشرفت</p></a>
+  </div>
+    <div class="hint">
+    یکی رو انتخاب کن و وارد دنیای توپولوژی شو 🚀
+  </div>
+</div>
 
-      <article class="card">
-        <div class="card-header">
-          <span class="badge purple"></span>
-          <h2 class="card-title">مجموعه‌های بسته</h2>
-        </div>
-        <p class="card-body">
-          شامل همه نقاط و مرز مجموعه، بستار کامل آن.
-        </p>
-      </article>
+<script>
+let pts = [];
+let angle = 0;
 
-      <article class="card">
-        <div class="card-header">
-          <span class="badge pink"></span>
-          <h2 class="card-title">نقاط مرزی</h2>
-        </div>
-        <p class="card-body">
-          نقاطی که همسایگی‌شان هم با مجموعه و هم بیرون آن برخورد دارد.
-        </p>
-      </article>
-    </section>
+function setup() {
+  let c = createCanvas(windowWidth, windowHeight, WEBGL);
+  c.position(0, 0);
+  c.style('z-index', '-1');
+  c.style('position', 'fixed');
+  noStroke();
 
-    <p class="blurb">
-      این اپلیکیشن به شما کمک می‌کند مفاهیم نقاط درونی، بیرونی، مرزی و بستار مجموعه‌ها را به صورت بصری و تعاملی یاد بگیرید.
-    </p>
-    <a href="page2.html" class="cta-wrap">
-        <button class="cta">شروع کاوش</button>
-    </a>
-  
-  </main>
+  for (let i = 0; i < 40; i++) {
+    pts.push({
+      x: random(-400, 400),
+      y: random(-300, 300),
+      z: random(-400, 400),
+      r: random(20, 60)
+    });
+  }
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+}
+
+function draw() {
+  clear();
+  background(12, 15, 32);
+
+  // نور
+  ambientLight(80);
+  pointLight(120, 120, 255, 300, -200, 400);
+
+  rotateY(angle * 0.3);
+  rotateX(angle * 0.15);
+  angle += 0.002;
+
+  // نقاط متریک
+  for (let p of pts) {
+    push();
+    translate(p.x, p.y, p.z);
+    ambientMaterial(255, 255, 255, 120);
+    sphere(3);
+    pop();
+  }
+
+  // کره‌های متریک (Ball)
+  for (let i = 0; i < 6; i++) {
+    push();
+    translate(
+      sin(angle + i) * 300,
+      cos(angle + i * 1.3) * 200,
+      cos(angle + i) * 300
+    );
+    ambientMaterial(72, 198, 255, 70);
+    sphere(80);
+    pop();
+  }
+
+  // مکعب‌ها
+  for (let i = 0; i < 4; i++) {
+    push();
+    translate(
+      cos(angle + i) * 500,
+      sin(angle * 1.3 + i) * 200,
+      sin(angle + i) * 300
+    );
+    rotateX(angle);
+    rotateY(angle * 0.7);
+    ambientMaterial(154, 107, 255, 90);
+    box(90);
+    pop();
+  }
+
+  // خطوط متریک (فاصله)
+  stroke(255, 79, 216, 70);
+  strokeWeight(1);
+  for (let i = 0; i < pts.length; i++) {
+    for (let j = i + 1; j < pts.length; j++) {
+      let d = dist(
+        pts[i].x, pts[i].y, pts[i].z,
+        pts[j].x, pts[j].y, pts[j].z
+      );
+      if (d < 180) {
+        line(
+          pts[i].x, pts[i].y, pts[i].z,
+          pts[j].x, pts[j].y, pts[j].z
+        );
+      }
+    }
+  }
+}
+</script>
 </body>
 </html>
