@@ -197,9 +197,160 @@
 <p>بنابراین \[ \forall r > 0 : \quad N_r(x_0) \cap A \neq \emptyset\]</p>
 <p> پس\( x_0 \in \overline{A} \)</p>
 <p>در نتیجه \( A \subseteq \overline{A} \).</p>
+
+<h3>قضیه:در فضای متریک گسسته، هر نقطه ، نقطه درونی هست و مرز هر مجموعه تهی است</h3>
+<p>اثبات کنید: در فضای متریک گسسته، هر نقطه ، نقطه درونی هست و مرز هر مجموعه تهی است</p>
+
+<p>فرض کنید \((X, d)\) فضای متریک گسسته باشد، یعنی:</p>
+
+<p>\[ d(x, y) = \begin{cases} 0 & x = y \\ 1 & x \neq y \end{cases} \]</p>
+
+<p>و \( A \subseteq X \) دلخواه باشد.</p>
+
+<h4>قسمت اول: هر نقطه \( p \in A \) نقطه داخلی \( A \) است.</h4>
+
+<p><strong>اثبات:</strong></p>
+
+<p>کافی است \( r = \frac{1}{2} \) (یا هر \( 0 < r < 1 \)) بگیریم.</p>
+
+<p>حال \( N_r(p) = \{ x \in X \mid d(p, x) < r \} = \{ x \in X \mid d(p, x) < \frac{1}{2} \}\).</p>
+
+<p>چون فاصله‌ها فقط ۰ یا ۱ هستند و \( d(p, p) = 0 < \frac{1}{2} \)، اما برای هر \( x \neq p \) داریم \( d(p, x) = 1 \not< \frac{1}{2} \)،</p>
+
+<p>پس \( N_r(p) = \{p\} \subseteq A \) (زیرا \( p \in A \)).</p>
+
+<p>بنابراین هر \( p \in A \) نقطه داخلی \( A \) است ⇒ \( A \subseteq \operatorname{int}(A) \subseteq A \) ⇒ \( \operatorname{int}(A) = A \). ■</p>
+
+
+<h4>قسمت دوم: مرز هر مجموعه تهی است، یعنی \( \partial A = \emptyset \).</h4>
+
+<p><strong>اثبات:</strong></p>
+
+<p>فرض کنید بر خلاف، \( p \in \partial A \) وجود داشته باشد.</p>
+
+<p>آنگاه \( p \) نقطه مرزی است، یعنی:</p>
+
+<p>\[ \forall r > 0 : \quad N_r(p) \cap A \neq \emptyset \quad \text{و} \quad N_r(p) \cap A^c \neq \emptyset \]</p>
+
+<p>حال \( r = \frac{1}{2} \) بگیریم. همان‌طور که بالا دیدیم:</p>
+
+<p>\[ N_{\frac{1}{2}}(p) = \{p\} \]</p>
+
+<p>اگر \( p \in A \)، آنگاه \( N_{\frac{1}{2}}(p) \cap A^c = \{p\} \cap A^c = \emptyset \) (تناقض).</p>
+
+<p>اگر \( p \notin A \)، آنگاه \( N_{\frac{1}{2}}(p) \cap A = \{p\} \cap A = \emptyset \) (تناقض).</p>
+
+<p>در هر حال تناقض به دست می‌آید.</p>
+
+<p>بنابراین هیچ نقطه مرزی وجود ندارد ⇒ \( \partial A = \emptyset \). ■</p>
+
+<h3>قضیه: نقاط داخلی یک مجموعه زیرمجموعه بستار آن هستند</h3>
+<p>اثبات: نقاط داخلی یک مجموعه زیرمجموعه بستار آن هستند</p>
+
+<p>فرض کنید \((X, d)\) یک فضای متریک و \( A \subseteq X \) باشد.</p>
+
+<p>می‌دانیم (از مسئله قبلی) که همیشه \( A \subseteq \overline{A} \).</p>
+
+<p>باید نشان دهیم \( \operatorname{int}(A) \subseteq \overline{A} \).</p>
+
+<p><strong>اثبات:</strong></p>
+
+<p>هر نقطه داخلی از \( A \) حتماً عضو خود \( A \) است.</p>
+
+<p>یعنی اگر \( p \in \operatorname{int}(A) \)، آنگاه \( p \in A \).</p>
+
+
+<p>بنابراین:</p>
+
+<p>\[ \operatorname{int}(A) \subseteq A \]</p>
+
+<p>و از فرض شناخته‌شده داریم:</p>
+
+<p>\[ A \subseteq \overline{A} \]</p>
+
+<p>پس با ترکیب این دو:</p>
+
+<p>\[ \operatorname{int}(A) \subseteq A \subseteq \overline{A} \]</p>
+
+<p>یعنی:</p>
+
+<p>\[ \operatorname{int}(A) \subseteq \overline{A} \].■</p>
+
+<h3>قضیه: اگر \( A \subseteq B \)، آنگاه \( \operatorname{int}(A) \subseteq \operatorname{int}(B) \)</h3>
+<p>اثبات: اگر \( A \subseteq B \)، آنگاه \( \operatorname{int}(A) \subseteq \operatorname{int}(B) \)</p>
+
+<p>فرض کنید \((X, d)\) یک فضای متریک و \( A \subseteq B \subseteq X \) باشد.</p>
+
+<p>باید نشان دهیم \( \operatorname{int}(A) \subseteq \operatorname{int}(B) \).</p>
+
+<p><strong>اثبات:</strong></p>
+
+<p>فرض کنید \( p \in \operatorname{int}(A) \) دلخواه باشد.</p>
+
+<p>یعنی \( p \) نقطه داخلی \( A \) است.</p>
+
+<p>پس \( \exists r > 0 \) طوری که:</p>
+
+<p>\[ N_r(p) \subseteq A \]</p>
+
+<p>از طرفی \( A \subseteq B \)، بنابراین:</p>
+
+<p>\[ N_r(p) \subseteq A \subseteq B \]</p>
+
+<p>یعنی:</p>
+
+<p>\[ N_r(p) \subseteq B \]</p>
+
+<p>پس همان \( r > 0 \) کار می‌کند و \( p \) نقطه داخلی \( B \) است.</p>
+
+<p>یعنی \( p \in \operatorname{int}(B) \).</p>
+
+<p>چون \( p \) دلخواه در \( \operatorname{int}(A) \) بود، داریم:</p>
+
+<p>\[ \operatorname{int}(A) \subseteq \operatorname{int}(B) \].■</p>
+
+<h3>قضیه: اگر \( A \subseteq B \)، آنگاه \( \overline{A} \subseteq \overline{B} \)</h3>
+
+<p>اثبات: اگر \( A \subseteq B \)، آنگاه \( \overline{A} \subseteq \overline{B} \)</p>
+
+<h4>روش اول (مستقیم از تعریف بستار):</h4>
+
+<p>فرض کنید \( p \in \overline{A} \) دلخواه باشد.</p>
+
+<p>یعنی برای هر همسایگی دلخواه با شعاع \( r > 0 \):</p>
+
+<p>\[ N_r(p) \cap A \neq \emptyset \]</p>
+
+<p>بنا به فرض \( A \subseteq B \)، پس:</p>
+
+<p>\[ N_r(p) \cap A \subseteq N_r(p) \cap B \]</p>
+
+<p>بنابراین \( N_r(p) \cap B \neq \emptyset \).</p>
+
+<p>این برای هر \( r > 0 \) دلخواه برقرار است، پس \( p \in \overline{B} \).</p>
+
+<p>چون \( p \) دلخواه بود، \( \overline{A} \subseteq \overline{B} \). ■</p>
+
+<h4>روش دوم (با استفاده از مکمل و قضیه داخلی):</h4>
+
+<p>فرض \( A \subseteq B \).</p>
+
+<p>آنگاه \( B^c \subseteq A^c \).</p>
+
+<p>⇒ \( (B^c)^\circ \subseteq (A^c)^\circ \)</p>
+
+<p>⇒ \( (\overline{B})^c \subseteq (\overline{A})^c \)</p>
+
+<p>⇒ \( \overline{A} \subseteq \overline{B} \). ■</p>
          </section>
     </div>
-    
+ <button class="menu-btn" onclick="goToMenu()">بازگشت به منو </button>
+   <script>
+  function goToMenu() {
+    window.location.href = "index.html";
+  }
+</script>
+
     <!-- اسکریپت p5.js برای پس‌زمینه متحرک -->
     <script src="jspage2.js"></script>
 </body>

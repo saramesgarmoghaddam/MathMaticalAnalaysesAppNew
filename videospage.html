@@ -2,89 +2,103 @@
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <title>آموزش آنالیز ریاضی | نقاط درونی، بیرونی و مرزی</title>
+  <title>آموزش آنالیز ریاضی | ویدیوهای آموزشی</title>
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     :root{
-      --primary:#1e3a8a;   /* آبی دانشگاهی */
-      --secondary:#0f172a; /* سرمه‌ای تیره */
-      --accent:#38bdf8;    /* آبی روشن */
-      --bg:#f8fafc;        /* پس‌زمینه روشن */
-      --card:#ffffff;
+      --glass-bg: rgba(16,18,40,0.48);
+      --glass-border: rgba(255,255,255,0.18);
+      --text-primary: #ffffff;
+      --text-secondary: #cdd5ff;
+      --accent-blue: #48c6ff;
+      --accent-pink: #ff4fd8;
     }
 
-    *{box-sizing:border-box}
+    *{box-sizing:border-box;}
 
     body{
       margin:0;
       font-family:'Vazirmatn', sans-serif;
-      background:var(--bg);
-      color:#1f2933;
+      background:#0c0f20;
+      color: var(--text-primary);
     }
 
     header{
-      background:linear-gradient(135deg,var(--secondary),var(--primary));
-      color:#fff;
-      padding:2.5rem 1rem;
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      border-radius: 30px;
+      padding: 2.5rem 1rem;
       text-align:center;
+      margin: 40px auto 20px;
+      max-width: 1100px;
     }
 
     header h1{
       margin:0;
-      font-size:2.2rem;
+      font-size:2.4rem;
       font-weight:700;
+      background: linear-gradient(135deg, var(--accent-blue), var(--accent-pink));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     header p{
       margin-top:0.8rem;
-      font-weight:300;
-      opacity:0.9;
+      font-weight:400;
+      color: var(--text-secondary);
+      opacity: 0.9;
     }
 
     main{
       max-width:1100px;
-      margin:2.5rem auto;
+      margin:20px auto;
       padding:0 1rem;
     }
 
     .section-title{
       font-size:1.6rem;
       margin-bottom:1.5rem;
-      border-right:5px solid var(--primary);
+      border-right:5px solid var(--accent-blue);
       padding-right:0.8rem;
-      color:var(--secondary);
+      color: var(--text-secondary);
     }
 
- .video-grid{
-  display:grid;
-  grid-template-columns:1fr; /* فقط یک ستون */
-  gap:2rem;
-}
+    .video-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:2rem;
+    }
 
     .video-card{
-      background:var(--card);
-      border-radius:18px;
-      box-shadow:0 10px 25px rgba(0,0,0,0.08);
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
       overflow:hidden;
-      transition:transform .3s ease, box-shadow .3s ease;
+      transition: transform .3s ease, box-shadow .3s ease;
+      cursor: pointer;
     }
 
     .video-card:hover{
-      transform:translateY(-6px);
-      box-shadow:0 20px 40px rgba(0,0,0,0.12);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
     }
 
     .video-wrapper{
       position:relative;
-      padding-top:56.25%; /* 16:9 */
+      padding-top:56.25%;
       background:#000;
     }
 
-    .video-wrapper iframe{
+    .video-wrapper iframe,
+    .video-wrapper video{
       position:absolute;
-      top:0;left:0;
-      width:100%;height:100%;
+      top:0; left:0;
+      width:100%;
+      height:100%;
       border:none;
+      object-fit:cover;
     }
 
     .video-content{
@@ -94,24 +108,14 @@
     .video-content h3{
       margin:0 0 0.6rem;
       font-size:1.1rem;
-      color:var(--secondary);
+      color: var(--text-primary);
     }
 
     .video-content p{
-      font-size:0.9rem;
+      font-size:0.95rem;
       line-height:1.7;
-      color:#4b5563;
+      color: var(--text-secondary);
     }
-
-    .video-wrapper video{
-  position:absolute;
-  top:0;left:0;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  border:none;
-}
-
 
     .actions{
       display:flex;
@@ -130,25 +134,99 @@
       align-items:center;
       gap:0.4rem;
       border:none;
-      background:#f1f5f9;
+      background: rgba(255,255,255,0.08);
       padding:0.45rem 0.9rem;
       border-radius:999px;
       cursor:pointer;
       font-size:0.85rem;
-      transition:background .25s ease, transform .2s ease;
+      color: var(--text-secondary);
+      transition: all .25s ease;
     }
 
-    .btn:hover{background:#e2e8f0;transform:scale(1.05)}
+    .btn:hover{ 
+      background: rgba(255,255,255,0.15);
+      transform: scale(1.05);
+    }
 
-    .btn.like.active{background:#dcfce7;color:#166534}
-    .btn.dislike.active{background:#fee2e2;color:#991b1b}
+    .btn.like.active{background:#dcfce7;color:#166534;}
+    .btn.dislike.active{background:#fee2e2;color:#991b1b;}
 
     footer{
       margin-top:4rem;
       padding:1.5rem 1rem;
       text-align:center;
       font-size:0.85rem;
-      color:#64748b;
+      color: var(--text-secondary);
+    }
+
+    .menu-btn {
+      position: fixed;
+      top: 24px;
+      left: 24px;
+      padding: 12px 20px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: bold;
+      font-family: 'Vazirmatn', sans-serif;
+      color: #0a0202;
+      text-align: center;
+      background: linear-gradient(135deg, #6cf, rgb(254, 7, 209));
+      box-shadow:
+        0 0 15px #6cf,
+        0 0 30px rgb(249, 4, 196),
+        inset 0 0 20px rgba(255,255,255,0.2);
+      z-index: 99999;
+      transition: all 0.3s ease;
+      animation: neonPulse 1.5s ease-in-out infinite;
+    }
+
+    .menu-btn:hover {
+      transform: scale(1.08);
+      box-shadow:
+        0 0 25px #6cf,
+        0 0 50px rgb(251, 6, 235),
+        inset 0 0 25px rgba(255,255,255,0.25);
+    }
+
+    @keyframes neonPulse {
+      0%, 100% {
+        box-shadow:
+          0 0 15px #6cf,
+          0 0 30px rgb(246, 4, 173),
+          inset 0 0 20px rgba(255,255,255,0.2);
+      }
+      50% {
+        box-shadow:
+          0 0 25px #6cf,
+          0 0 50px rgb(242, 4, 198),
+          inset 0 0 25px rgba(255,255,255,0.25);
+      }
+    }
+
+    /* Lightbox */
+    #lightboxOverlay {
+      position: fixed;
+      inset:0;
+      background: rgba(0,0,0,0.85);
+      display: none;
+      justify-content:center;
+      align-items:center;
+      z-index: 9999;
+    }
+
+    #lightboxOverlay video {
+      max-width:90%;
+      max-height:90%;
+      border-radius:20px;
+      box-shadow:0 15px 50px rgba(0,0,0,0.7);
+    }
+
+    @media(max-width:768px){
+      .video-grid{grid-template-columns:1fr;}
+      header h1{font-size:2rem;}
+      .section-title{font-size:1.4rem;}
     }
   </style>
 </head>
@@ -156,7 +234,8 @@
 
 <header>
   <h1>آموزش آنالیز ریاضی</h1>
-  <p>مبحث نقاط درونی، بیرونی و مرزی </p>
+
+  <p>در این بخش، ویدیوهای آموزشی مربوط به مفاهیم بستار یک مجموعه، نقاط درونی، بیرونی و مرزی در فضای متریک و یک سری قضایا و مسائل کاربردی را مشاهده خواهید کرد.</p>
 </header>
 
 <main>
@@ -164,20 +243,17 @@
 
   <div class="video-grid">
 
-    <!-- Video Card 1 -->
+    <!-- Video Cards 1 تا 6 -->
     <div class="video-card">
       <div class="video-wrapper">
-  <video controls preload="metadata">
-    <source src="videos/inner.mp4" type="video/mp4">
-    مرورگر شما از ویدیو پشتیبانی نمی‌کند
-  </video>
-</div>
-
+        <video class="lightbox-video" controls preload="metadata">
+          <source src="videos/inner.mp4" type="video/mp4">
+          مرورگر شما از ویدیو پشتیبانی نمی‌کند
+        </video>
+      </div>
       <div class="video-content">
         <h3>تعریف مجموعه و نقاط درونی</h3>
-        <p>
-          در این ویدیو مفهوم نقطهٔ درونی، همسایگی و ارتباط آن با مجموعه‌های باز بررسی می‌شود.
-        </p>
+        <p>در این ویدیو مفهوم نقطهٔ درونی، همسایگی و ارتباط آن با مجموعه‌های باز بررسی می‌شود.</p>
         <div class="actions">
           <div class="like-group">
             <button class="btn like" onclick="toggleLike(this)">👍 <span>0</span></button>
@@ -187,19 +263,15 @@
       </div>
     </div>
 
-    <!-- Video Card 2 -->
     <div class="video-card">
       <div class="video-wrapper">
-       <video controls preload="metadata">
-    <source src="videos/outer.mp4" type="video/mp4">
-    مرورگر شما از ویدیو پشتیبانی نمی‌کند
-  </video>
+        <video class="lightbox-video" controls preload="metadata">
+          <source src="videos/outer.mp4" type="video/mp4">
+        </video>
       </div>
       <div class="video-content">
         <h3>نقاط بیرونی و مجموعه‌های بسته</h3>
-        <p>
-          بررسی شهودی و رسمی نقاط بیرونی و تفاوت آن‌ها با نقاط درونی در فضای متریک.
-        </p>
+        <p>بررسی شهودی و رسمی نقاط بیرونی و تفاوت آن‌ها با نقاط درونی در فضای متریک.</p>
         <div class="actions">
           <div class="like-group">
             <button class="btn like" onclick="toggleLike(this)">👍 <span>0</span></button>
@@ -209,19 +281,69 @@
       </div>
     </div>
 
-    <!-- Video Card 3 -->
     <div class="video-card">
       <div class="video-wrapper">
-           <video controls preload="metadata">
-    <source src="videos/border.mp4" type="video/mp4">
-    مرورگر شما از ویدیو پشتیبانی نمی‌کند
-  </video>
+        <video class="lightbox-video" controls preload="metadata">
+          <source src="videos/border.mp4" type="video/mp4">
+        </video>
       </div>
       <div class="video-content">
         <h3>نقاط مرزی و مثال‌های مهم</h3>
-        <p>
-          تعریف نقطه مرزی، رابطه آن با نقاط درونی و بیرونی و حل چند مثال دانشگاهی.
-        </p>
+        <p>تعریف نقطه مرزی، رابطه آن با نقاط درونی و بیرونی و حل چند مثال دانشگاهی.</p>
+        <div class="actions">
+          <div class="like-group">
+            <button class="btn like" onclick="toggleLike(this)">👍 <span>0</span></button>
+            <button class="btn dislike" onclick="toggleDislike(this)">👎 <span>0</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="video-card">
+      <div class="video-wrapper">
+        <video class="lightbox-video" controls preload="metadata">
+          <source src="videos/video4.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="video-content">
+        <h3>ویدیو چهارم</h3>
+        <p>توضیح کوتاه و جذاب برای ویدیو چهارم</p>
+        <div class="actions">
+          <div class="like-group">
+            <button class="btn like" onclick="toggleLike(this)">👍 <span>0</span></button>
+            <button class="btn dislike" onclick="toggleDislike(this)">👎 <span>0</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="video-card">
+      <div class="video-wrapper">
+        <video class="lightbox-video" controls preload="metadata">
+          <source src="videos/video5.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="video-content">
+        <h3>ویدیو پنجم</h3>
+        <p>توضیح کوتاه و جذاب برای ویدیو پنجم</p>
+        <div class="actions">
+          <div class="like-group">
+            <button class="btn like" onclick="toggleLike(this)">👍 <span>0</span></button>
+            <button class="btn dislike" onclick="toggleDislike(this)">👎 <span>0</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="video-card">
+      <div class="video-wrapper">
+        <video class="lightbox-video" controls preload="metadata">
+          <source src="videos/video6.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="video-content">
+        <h3>ویدیو ششم</h3>
+        <p>توضیح کوتاه و جذاب برای ویدیو ششم</p>
         <div class="actions">
           <div class="like-group">
             <button class="btn like" onclick="toggleLike(this)">👍 <span>0</span></button>
@@ -234,26 +356,31 @@
   </div>
 </main>
 
-<footer>
-  © 2025 | اپ آموزش آنالیز ریاضی – طراحی شده با HTML, CSS و JavaScript
-</footer>
+<!-- Footer -->
+ <!-- © 2025 | اپ آموزش آنالیز ریاضی – طراحی شده با HTML, CSS و JavaScript -->
+<!-- </footer> -->
+
+<button class="menu-btn" onclick="goToMenu()">بازگشت به منو</button>
+
+<!-- Lightbox -->
+<div id="lightboxOverlay">
+  <video id="lightboxVideo" controls></video>
+</div>
 
 <script>
   function toggleLike(btn){
     const dislikeBtn = btn.parentElement.querySelector('.dislike');
     const count = btn.querySelector('span');
-
     if(btn.classList.contains('active')){
       btn.classList.remove('active');
-      count.textContent = Number(count.textContent) - 1;
+      count.textContent = Number(count.textContent)-1;
     } else {
       btn.classList.add('active');
-      count.textContent = Number(count.textContent) + 1;
-
+      count.textContent = Number(count.textContent)+1;
       if(dislikeBtn.classList.contains('active')){
         dislikeBtn.classList.remove('active');
         const dCount = dislikeBtn.querySelector('span');
-        dCount.textContent = Number(dCount.textContent) - 1;
+        dCount.textContent = Number(dCount.textContent)-1;
       }
     }
   }
@@ -261,22 +388,43 @@
   function toggleDislike(btn){
     const likeBtn = btn.parentElement.querySelector('.like');
     const count = btn.querySelector('span');
-
     if(btn.classList.contains('active')){
       btn.classList.remove('active');
-      count.textContent = Number(count.textContent) - 1;
+      count.textContent = Number(count.textContent)-1;
     } else {
       btn.classList.add('active');
-      count.textContent = Number(count.textContent) + 1;
-
+      count.textContent = Number(count.textContent)+1;
       if(likeBtn.classList.contains('active')){
         likeBtn.classList.remove('active');
         const lCount = likeBtn.querySelector('span');
-        lCount.textContent = Number(lCount.textContent) - 1;
+        lCount.textContent = Number(lCount.textContent)-1;
       }
     }
   }
+
+  function goToMenu() {
+    window.location.href = "index.html";
+  }
+
+  // Lightbox
+  const lightboxOverlay = document.getElementById('lightboxOverlay');
+  const lightboxVideo = document.getElementById('lightboxVideo');
+
+  document.querySelectorAll('.lightbox-video').forEach(video => {
+    video.addEventListener('click', () => {
+      lightboxVideo.src = video.currentSrc || video.querySelector('source').src;
+      lightboxOverlay.style.display = 'flex';
+      lightboxVideo.play();
+    });
+  });
+
+  lightboxOverlay.addEventListener('click', () => {
+    lightboxVideo.pause();
+    lightboxOverlay.style.display = 'none';
+    lightboxVideo.src = '';
+  });
 </script>
 
 </body>
 </html>
+ 

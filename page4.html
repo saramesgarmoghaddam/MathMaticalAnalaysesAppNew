@@ -16,6 +16,14 @@
 </div>
 
 <div class="overlay" id="overlay"></div>
+<div class="exercise-info">
+  <p>
+    این تمرین جهت ثبت یادگیری شما طراحی شده است. لطفا سوالات را با دقت بخوانید و پس از جواب دادن آنها برای درست سنجی پاسخ خود روی "دیدن پاسخ" بزنید.
+  </p>
+  <p>
+    توجه: با زدن روی هر تمرین، صفحه آن تمرین بزرگ شده و خواندن را آسان‌تر می‌کند.
+  </p>
+</div>
 
 <!-- ===== Exercises ===== -->
 <div class="container">
@@ -220,7 +228,12 @@ A=Q∩[0,1] خودش مثال مناسبی است.
     </div>
   </div>
 </div>
-
+ <button class="menu-btn" onclick="goToMenu()">بازگشت به منو </button>
+   <script>
+  function goToMenu() {
+    window.location.href = "index.html";
+  }
+</script>
 <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
 <script src="jspage4.js"></script>
 </body>
