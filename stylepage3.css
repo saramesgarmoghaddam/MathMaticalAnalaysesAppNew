@@ -15,11 +15,11 @@ body {
 
 .layout {
   display: grid;
-  grid-template-columns: 1fr 420px; /* canvas بزرگ چپ، کارت‌ها راست */
+  grid-template-columns: 1fr 420px;
   height: 100vh;
 }
 
-/* چپ: ویژوال */
+
 .visual-panel {
   padding: 32px;
   background: transparent;
@@ -86,13 +86,12 @@ body {
   border: 2px solid rgba(72, 198, 255, 0.4);
 }
 
-/* راست: کارت‌ها */
 .analysis-panel {
   padding: 28px;
   overflow-y: auto;
   background: rgba(16, 18, 40, 0.55);
   backdrop-filter: blur(20px);
-  border-left: 1px solid rgba(255, 255, 255, 0.18); /* این خط مهمه — مرز چپ یعنی نوار در راست است */
+  border-left: 1px solid rgba(255, 255, 255, 0.18); 
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -155,11 +154,11 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 .definitions {
-  max-height: 380px; /* افزایش از 260px به 380px — فضای بیشتر برای فرمول‌ها */
-  min-height: 300px; /* حداقل ارتفاع تا کارت فشرده نشه */
+  max-height: 380px; 
+  min-height: 300px;
   overflow-y: auto;
-  overflow-x: auto; /* اسکرول افقی حفظ بشه */
-  padding: 20px; /* کمی بیشتر برای راحتی */
+  overflow-x: auto;
+  padding: 20px; 
   background: rgba(16, 18, 40, 0.4);
   border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 16px;
@@ -167,21 +166,21 @@ input[type="range"]::-webkit-slider-thumb {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 24px; /* فاصله بهتر بین تعریف‌ها */
+  gap: 24px; 
 }
 
 .def-row {
-  margin-bottom: 0; /* حاشیه پایین رو به gap کارت واگذار کن */
+  margin-bottom: 0; 
 }
 
 .math {
   direction: ltr;
   overflow-x: auto;
-  white-space: nowrap; /* فرمول‌ها در یک خط بمونن */
+  white-space: nowrap; 
   padding: 14px;
   background: rgba(0,0,0,0.3);
   border-radius: 12px;
-  font-size: 17px; /* کمی بزرگ‌تر برای خوانایی */
+  font-size: 17px; 
   scrollbar-width: thin;
   scrollbar-color: #48c6ff rgba(0,0,0,0.3);
 }
@@ -247,7 +246,7 @@ input[type="range"]::-webkit-slider-thumb {
   left: 24px;
 
   padding: 12px 20px;
-  border-radius: 50px; /* گرد و بیضی */
+  border-radius: 50px; 
   border: none;
   cursor: pointer;
 
@@ -257,11 +256,11 @@ input[type="range"]::-webkit-slider-thumb {
   color: #0a0202;
   text-align: center;
 
-  background: linear-gradient(135deg, #6cf, rgb(254, 7, 209)); /* صورتی-بنفش */
+  background: linear-gradient(135deg, #6cf, rgb(254, 7, 209)); 
   box-shadow:
     0 0 15px #6cf,
     0 0 30px rgb(249, 4, 196),
-    inset 0 0 20px rgba(255,255,255,0.2); /* نور داخلی */
+    inset 0 0 20px rgba(255,255,255,0.2); 
 
   z-index: 99999;
 
@@ -278,7 +277,6 @@ input[type="range"]::-webkit-slider-thumb {
     inset 0 0 25px rgba(255,255,255,0.25);
 }
 
-/* ===== Neon Pulse Animation ===== */
 @keyframes neonPulse {
   0%, 100% {
     box-shadow:

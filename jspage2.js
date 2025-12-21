@@ -1,5 +1,5 @@
 let particles = [];
-let points = []; // نقاط گردان کوچک
+let points = []; 
 
 function setup() {
     let canvas = createCanvas(windowWidth, windowHeight, WEBGL);
@@ -8,17 +8,17 @@ function setup() {
     canvas.style('z-index', '-2');
     canvas.style('display', 'block');
 
-    // نور محیطی و جهت‌دار برای درخشش بهتر
+
     ambientLight(80);
     directionalLight(200, 200, 200, 0, 0, -1);
-    pointLight(255, 255, 255, 0, 0, 300); // نور نقطه‌ای برای درخشش
+    pointLight(255, 255, 255, 0, 0, 300);
 
-    // ۷ شکل اصلی
+
     for (let i = 0; i < 7; i++) {
         particles.push(new ShapeParticle());
     }
 
-    // ۱۲ نقطه گردان کوچک
+
     for (let i = 0; i < 12; i++) {
         points.push(new PointParticle());
     }
@@ -42,7 +42,7 @@ function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
 }
 
-// کلاس شکل‌های اصلی — درخشان با رنگ ثابت
+
 class ShapeParticle {
     constructor() {
         this.reset();
@@ -52,15 +52,15 @@ class ShapeParticle {
         this.rotSpeedX = random(-0.01, 0.01);
         this.rotSpeedY = random(-0.015, 0.015);
         this.rotSpeedZ = random(-0.01, 0.01);
-        this.fixedColor = this.chooseColor(); // رنگ ثابت
+        this.fixedColor = this.chooseColor(); 
     }
 
     chooseColor() {
         let hue = random();
-        if (hue < 0.6) return color(255, 255, 150); // زرد روشن
-        else if (hue < 0.75) return color(72, 198, 255); // آبی
-        else if (hue < 0.9) return color(255, 79, 216); // صورتی
-        else return color(154, 107, 255); // بنفش
+        if (hue < 0.6) return color(255, 255, 150); 
+        else if (hue < 0.75) return color(72, 198, 255); 
+        else if (hue < 0.9) return color(255, 79, 216); 
+        else return color(154, 107, 255); 
     }
 
     reset() {
@@ -71,7 +71,7 @@ class ShapeParticle {
         this.speedX = random(-0.5, 0.5);
         this.speedY = random(-0.5, 0.5);
         this.type = floor(random(5));
-        this.fixedColor = this.chooseColor(); // رنگ جدید فقط موقع ریست
+        this.fixedColor = this.chooseColor(); 
     }
 
     update() {
@@ -82,7 +82,7 @@ class ShapeParticle {
         this.rotY += this.rotSpeedY;
         this.rotZ += this.rotSpeedZ;
 
-        // خروج و ورود از سمت مخالف
+      
         if (abs(this.x) > width/2 + 200 || abs(this.y) > height/2 + 200) {
             if (this.x > width/2 + 100) this.x = -width/2 - 100;
             if (this.x < -width/2 - 100) this.x = width/2 + 100;
@@ -98,11 +98,10 @@ class ShapeParticle {
         rotateX(this.rotX);
         rotateY(this.rotY);
         rotateZ(this.rotZ);
-
-        // درخشش اضافه شد
+        
         emissiveMaterial(red(this.fixedColor), green(this.fixedColor), blue(this.fixedColor));
         specularColor(red(this.fixedColor) * 1.5, green(this.fixedColor) * 1.5, blue(this.fixedColor) * 1.5);
-        shininess(50); // شدت درخشش
+        shininess(50); 
 
         noFill();
         strokeWeight(random(2, 4));
@@ -137,7 +136,7 @@ class ShapeParticle {
     }
 }
 
-// نقاط گردان کوچک — درخشان و چشمک‌دار
+
 class PointParticle {
     constructor() {
         this.reset();
@@ -170,7 +169,7 @@ class PointParticle {
         push();
         translate(this.x, this.y, 0);
 
-        // درخشش قوی برای نقاط
+    
         let alpha = 100 + 155 * abs(sin(this.blinkPhase));
         let baseCol = random() < 0.6 ? color(255, 255, 150) :
                       random() < 0.8 ? color(72, 198, 255) :

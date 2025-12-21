@@ -151,15 +151,15 @@ a.card:hover {
   font-size: 10px;        
   color: rgba(255, 255, 255, 0.5); 
   text-align: center;
-  position: fixed;       /* ثابت در صفحه */
-  bottom: 5px;           /* فاصله از پایین */
+  position: fixed;       
+  bottom: 5px;           
   left: 0;
-  width: 100%;           /* عرض کامل صفحه */
+  width: 100%;           
   font-family: 'Vazirmatn', sans-serif;
-  pointer-events: none;  /* غیرقابل کلیک */
+  pointer-events: none; 
 }
 
-    /* mobile */
+  
     @media (max-width: 768px) {
       .app {
         padding: 25px;
@@ -232,7 +232,7 @@ function draw() {
   clear();
   background(12, 15, 32);
 
-  // نور
+ 
   ambientLight(80);
   pointLight(120, 120, 255, 300, -200, 400);
 
@@ -240,7 +240,7 @@ function draw() {
   rotateX(angle * 0.15);
   angle += 0.009;
 
-  // نقاط متریک
+
   for (let p of pts) {
     push();
     translate(p.x, p.y, p.z);
@@ -249,7 +249,7 @@ function draw() {
     pop();
   }
 
-  // کره‌های متریک (Ball)
+ 
   for (let i = 0; i < 4; i++) {
     push();
     translate(
@@ -262,7 +262,7 @@ function draw() {
     pop();
   }
 
-  // مکعب‌ها
+
   for (let i = 0; i < 7; i++) {
     push();
     translate(
@@ -277,7 +277,7 @@ function draw() {
     pop();
   }
 
-  // خطوط متریک (فاصله)
+
   stroke(255, 79, 216, 70);
   strokeWeight(1);
   for (let i = 0; i < pts.length; i++) {

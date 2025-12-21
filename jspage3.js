@@ -2,20 +2,20 @@ let currentSpace = 1;
 const totalSpaces = 4;
 let p5Instance = null;
 let epsilon = 30;
-// کره 3 بعدی
-const R = 160;       // شعاع کره
-const delta3D = 4;   // ضخامت مرز کره
 
-// عمق نقطه که کاربر انتخاب می‌کنه
-let depth = R;       // به صورت پیش‌فرض روی مرز کره
+const R = 160;       
+const delta3D = 4;   
 
-// بردار جهت موس روی صفحه
+
+let depth = R;       
+
+
 let ray = null;
 
-// اسلایدر و المان‌های HTML مربوط به عمق
-const depthSlider = document.getElementById("depth");       // <input type="range" id="depth">
-const depthValue = document.getElementById("depthValue");   // نمایش عدد عمق
-const depthCard  = document.getElementById("depthCard");    // کارت کنترل عمق
+
+const depthSlider = document.getElementById("depth");     
+const depthValue = document.getElementById("depthValue");   
+const depthCard  = document.getElementById("depthCard");    
 const epsilonSlider = document.getElementById("epsilon");
 const epsValue = document.getElementById("epsValue");
 const badge = document.getElementById("point-type");
@@ -49,7 +49,7 @@ function createSketch(space) {
     if (space === 1 || space === 2 || space === 4) {
 
     p5Instance = new p5((p) => {
-        let selected = null; // هر بار ریست می‌شه تا نقطه قبلی پاک بشه
+        let selected = null; 
 
         p.setup = () => {
             let c = p.createCanvas(820, 540);
@@ -61,7 +61,7 @@ function createSketch(space) {
             p.translate(p.width / 2, p.height / 2);
 
             if (space === 1) {
-                // ℝ — بازه (0,1)
+               
                 p.stroke(200);
                 p.strokeWeight(2);
                 p.line(-400, 0, 400, 0);
@@ -88,7 +88,7 @@ function createSketch(space) {
                 p.text("(0,1)", 0, -80);
             }
             else if (space === 2) {
-                // ℝ² — شکل نامتقارن
+           
                 p.stroke(200);
                 p.strokeWeight(2);
                 p.line(-400, 0, 400, 0);
@@ -106,13 +106,13 @@ function createSketch(space) {
                 p.endShape(p.CLOSE);
             }
             else if (space === 4) {
-                // فضای گسسته — نمایش بهبودیافته
+          
                 p.stroke(200);
                 p.strokeWeight(2);
                 p.line(-400, 0, 400, 0);
                 p.line(0, -300, 0, 300);
 
-                // مجموعه A: نقاط داخل دایره گسسته
+             
                 const discreteSet = [];
                 for (let gx = -7; gx <= 7; gx++) {
                     for (let gy = -7; gy <= 7; gy++) {
@@ -122,7 +122,7 @@ function createSketch(space) {
                     }
                 }
 
-                // زمینه: همه نقاط شبکه (خاکستری)
+           
                 p.fill(120, 120, 140);
                 p.noStroke();
                 for (let gx = -8; gx <= 8; gx++) {
@@ -135,20 +135,19 @@ function createSketch(space) {
                     }
                 }
 
-                // نقاط مجموعه A (آبی روشن و بزرگ)
                 p.fill(0, 255, 213, 70);
                 p.noStroke();
                 for (let pt of discreteSet) {
                     p.circle(pt.x, pt.y, 30);
                 }
 
-                // عنوان
+            
                 p.fill(255, 220, 100);
                 p.textSize(24);
                 p.textAlign(p.CENTER, p.CENTER);
                 p.text( 0, -250);
 
-                // نقطه انتخاب‌شده
+            
                 if (selected) {
                     p.fill(255, 60, 60);
                     p.noStroke();
@@ -175,7 +174,6 @@ function createSketch(space) {
                 }
             }
 
-            // نقطه انتخاب‌شده در فضاهای ۱ و ۲ (در ۴ داخل بلوک بالا رسم شد)
             if (selected && (space === 1 || space === 2)) {
                 p.fill(255, 60, 60);
                 p.noStroke();
@@ -190,7 +188,6 @@ function createSketch(space) {
             }
         };
 
-        // مدیریت کلیک — کامل و درست
         p.mousePressed = () => {
             let mx = p.mouseX - p.width / 2;
             let my = p.mouseY - p.height / 2;
@@ -220,9 +217,7 @@ function createSketch(space) {
                 }
             }
             else if (space === 2) {
-                // اینجا کد تشخیص نقطه درونی/مرزی/بیرونی فضای ۲ بعدی رو که قبلاً داشتی کپی کن
-                // (همون با polyVertices و pointInPolygon و pointNearEdge)
-                // من برای کوتاه شدن ننوشتمش، ولی حتماً کپی کن از کد اصلی خودت
+          
                 const polyVertices = [
                     {x:-160, y:50},
                     {x:-120, y:-80},
@@ -292,7 +287,7 @@ function createSketch(space) {
                 }
             }
             else if (space === 4) {
-                // فضای گسسته — کلیک
+                
                 const gridX = Math.round(mx / 50) * 50;
                 const gridY = Math.round(my / 50) * 50;
 
@@ -310,10 +305,9 @@ function createSketch(space) {
     });
 }
 else if (space === 3) {
-    // نمایش کارت کنترل عمق
+    
     if (depthCard) depthCard.style.display = "block";
 
-    // اضافه کردن دکمه‌های انتخاب نقطه (فقط یک بار)
     if (!depthCard.querySelector('.point-selector')) {
         const pointSelectorHTML = `
             <div class="point-selector">
@@ -328,9 +322,7 @@ else if (space === 3) {
         depthCard.insertAdjacentHTML('beforeend', pointSelectorHTML);
     }
 
-    // عمق هر نقطه به صورت جداگانه ذخیره می‌شه
-    // نقطه فعال با اسلایدر کنترل می‌شه، بقیه همیشه روی سطح (160)
-    let pointDepths = [160, 160, 160];  // اولیه همه روی سطح
+    let pointDepths = [160, 160, 160]; 
 
     p5Instance = new p5((p) => {
         let activePointIndex = 0;
@@ -353,31 +345,30 @@ else if (space === 3) {
             p.ambientLight(140);
             p.directionalLight(255, 255, 255, 0.4, 1, -0.5);
 
-            // محورها
             p.stroke(200);
             p.strokeWeight(2);
             p.line(-300, 0, 0, 300, 0, 0);
             p.line(0, -300, 0, 0, 300, 0);
             p.line(0, 0, -300, 0, 0, 300);
 
-            // داخل کره
+           
             p.noStroke();
             p.fill(0, 255, 213, 70);
             p.sphere(R - delta3D);
 
-            // مرز کره
+            
             p.noFill();
             p.stroke(255, 200, 0);
             p.strokeWeight(2);
             p.sphere(R);
 
-            // رسم سه نقطه
+           
             dirs.forEach((dir, i) => {
-                // عمق هر نقطه جداگانه
+               
                 let currentDepth = pointDepths[i];
                 let point = dir.copy().mult(currentDepth);
 
-                // نقطه قرمز
+        
                 p.push();
                 p.translate(point.x, point.y, point.z);
                 p.noStroke();
@@ -386,7 +377,6 @@ else if (space === 3) {
                 p.sphere(12);
                 p.pop();
 
-                // شماره
                 p.push();
                 p.translate(point.x, point.y, point.z);
                 p.fill(255);
@@ -396,7 +386,6 @@ else if (space === 3) {
                 p.text(String(i + 1), 0, -30, 0);
                 p.pop();
 
-                // فقط نقطه فعال: کره همسایگی ε
                 if (i === activePointIndex) {
                     p.push();
                     p.translate(point.x, point.y, point.z);
@@ -408,7 +397,6 @@ else if (space === 3) {
                 }
             });
 
-            // تحلیل فقط برای نقطه فعال و عمق فعلی آن
             let activeDepth = pointDepths[activePointIndex];
             if (activeDepth < R - delta3D) {
                 badge.textContent = `نقطه درونی (نقطه ${activePointIndex + 1})`;
@@ -425,25 +413,24 @@ else if (space === 3) {
             }
         };
 
-        // تغییر نقطه فعال
+   
         p.setActivePoint = function(index) {
             activePointIndex = index;
-            // وقتی نقطه عوض می‌شه، اسلایدر رو با عمق فعلی اون نقطه همگام کن
+
             depthSlider.value = pointDepths[index];
             depthValue.textContent = pointDepths[index];
         };
 
-        // تغییر عمق فقط برای نقطه فعال
         p.setDepth = function(newDepth) {
             pointDepths[activePointIndex] = newDepth;
         };
     });
 
-    // همگام‌سازی اولیه اسلایدر با نقطه اول
+  
     depthSlider.value = 160;
     depthValue.textContent = 160;
 
-    // وقتی اسلایدر حرکت کرد → فقط نقطه فعال تغییر کنه
+  
     depthSlider.addEventListener("input", () => {
         let newDepth = Number(depthSlider.value);
         depthValue.textContent = newDepth;
@@ -452,7 +439,7 @@ else if (space === 3) {
         }
     });
 
-    // کلیک روی دکمه‌های ۱،۲،۳
+  
     document.querySelectorAll('.point-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             document.querySelectorAll('.point-btn').forEach(b => b.classList.remove('active'));
@@ -467,7 +454,7 @@ else if (space === 3) {
 }
 }
 
-// اسلایدر ε — فقط مقدار رو بروز می‌کنه (دایره در draw بروز می‌شه)
+
 epsilonSlider.addEventListener("input", () => {
     epsilon = Number(epsilonSlider.value);
     epsValue.textContent = epsilon;
@@ -480,7 +467,7 @@ if (depthSlider) {
     });
 }
 
-// فلش‌ها
+
 document.getElementById("prevBtn").addEventListener("click", () => {
     currentSpace = currentSpace === 1 ? totalSpaces : currentSpace - 1;
     createSketch(currentSpace);
@@ -492,5 +479,5 @@ document.getElementById("nextBtn").addEventListener("click", () => {
 });
 
 
-// شروع
+
 createSketch(currentSpace);

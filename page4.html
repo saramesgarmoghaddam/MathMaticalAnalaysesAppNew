@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<!-- ===== Header ===== -->
+
 <div class="header">
   <div id="p5-header"></div>
   <h1>تمرین</h1>
@@ -25,21 +25,21 @@
   </p>
 </div>
 
-<!-- ===== Exercises ===== -->
+
 <div class="container">
-  <!-- 6 items -->
+
   <div class="exercise" onclick="openExercise(this)">
   <button class="close-btn" onclick="closeExercise(event)">✕</button>
   <h2>تمرین 1</h2>
 
   <div class="exercise-content">
-    <!-- ===== دستورالعمل ===== -->
+
     <div class="instruction">
       نقاط را بر اساس موقعیت‌شان نسبت به دایره دسته‌بندی کن: داخلی، مرزی، بیرونی. 
       این نقاط در فضای متریک دوبعدی هستند (x,y). با ضربه زدن روی باکس نوع نقطه ابتدا باکس را انتخاب و سپس با زدن روی نقاط مورد نظر برای آن باکس آنها را به دسته صحیح انتقال دهید
     </div>
 
-    <!-- ===== شکل و باکس‌های دسته‌بندی ===== -->
+
     <div class="main-panel">
       <div class="canvas-panel">
         <canvas id="setCanvas" width="600" height="360"></canvas>
@@ -49,11 +49,11 @@
         <div class="box" data-type="boundary">مرزی</div>
         <div class="box" data-type="outside">بیرونی</div>
       </div>
-  <!-- دکمه ریست -->
+
   <button class="reset-btn" onclick="resetExercise(event)">↺ ریست</button>
     </div>
 
-    <!-- ===== نتیجه ===== -->
+
     <div class="result-panel">
       <button class="answer-btn" onclick="finishExercise(event)">دیدن پاسخ</button>
       <div class="answer" id="exercise1-answer"></div>

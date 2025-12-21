@@ -5,9 +5,9 @@ new p5(p=>{
 
   p.setup = () => {
     const c = p.createCanvas(window.innerWidth, window.innerHeight);
-    c.position(0, 0);       // قرار دادن canvas در موقعیت 0,0
-    c.style('z-index', '-1'); // پشت سر همه عناصر
-    c.style('position', 'fixed'); // ثابت در پس‌زمینه
+    c.position(0, 0);   
+    c.style('z-index', '-1');
+    c.style('position', 'fixed'); 
     for(let i=0; i<NODE_COUNT; i++){
       nodes.push({
         x: p.random(p.width),
@@ -26,14 +26,13 @@ new p5(p=>{
     p.strokeWeight(2);
     
 
-    // حرکت نودها
+
     nodes.forEach(n=>{
       n.x += n.dx; n.y += n.dy;
       if(n.x < 0 || n.x > p.width) n.dx *= -1;
       if(n.y < 0 || n.y > p.height) n.dy *= -1;
     });
 
-    // رسم خطوط بین نودها
     for(let i=0;i<nodes.length;i++){
       for(let j=i+1;j<nodes.length;j++){
         const d = p.dist(nodes[i].x,nodes[i].y,nodes[j].x,nodes[j].y);
@@ -43,7 +42,6 @@ new p5(p=>{
       }
     }
 
-    // رسم نودها
     p.noFill();
     nodes.forEach(n=>{
       p.circle(n.x,n.y,4);

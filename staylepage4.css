@@ -13,7 +13,6 @@ body{
   overflow-x:hidden;
 }
 
-/* ===== Header ===== */
 .header{
   position:relative;
   height:220px;
@@ -33,7 +32,7 @@ body{
   font-size:30px;
 }
 
-/* ===== Grid ===== */
+
 .container{
   padding:24px;
   display:grid;
@@ -82,7 +81,7 @@ body{
   .container{grid-template-columns:1fr}
 }
 
-/* ===== Card ===== */
+
 .exercise.expanded {
   position: fixed !important;
   top: 50% !important;
@@ -92,7 +91,7 @@ body{
   height: auto !important;
   max-height: 90vh !important;
   margin-right: 15% !important; 
-  margin-top: -45vh !important;   /* نصف ارتفاع فعلی به بالا - دینامیک و دقیق */
+  margin-top: -45vh !important;  
   z-index: 1001 !important;
   background: rgba(8, 10, 25, 0.98) !important;
   overflow-y: auto !important;
@@ -102,29 +101,29 @@ body{
   box-sizing: border-box !important;
 }
 
-/* ===== Card - جدا شدن بهتر از پس‌زمینه حتی بدون hover ===== */
+
 .exercise {
   position: relative;
-  background: rgba(255, 255, 255, 0.08) !important;  /* همان شیشه‌ای قبلی */
-  border: 1px solid rgba(255, 255, 255, 0.25) !important;  /* بوردر روشن‌تر و قوی‌تر برای جداسازی */
+  background: rgba(255, 255, 255, 0.08) !important; 
+  border: 1px solid rgba(255, 255, 255, 0.25) !important; 
   border-radius: 18px;
   padding: 16px;
-  backdrop-filter: blur(16px) !important;  /* مات کردن قوی‌تر پس‌زمینه پشت کارت */
+  backdrop-filter: blur(16px) !important; 
   box-shadow: 
-    0 8px 25px rgba(32, 7, 123, 0.4),           /* سایه عمیق‌تر در حالت عادی */
-    0 0 15px rgba(245, 7, 209, 0.15) !important;  /* گلو نئونی آبی ملایم دور کارت */
+    0 8px 25px rgba(32, 7, 123, 0.4),           
+    0 0 15px rgba(245, 7, 209, 0.15) !important; 
   cursor: pointer;
   transition: all 0.3s ease !important;
 }
 
-/* وقتی hover می‌کنی، قوی‌تر بشه (مثل الان اما بهتر) */
+
 .exercise:hover {
-  transform: translateY(-10px) !important;  /* بلند شدن بیشتر */
+  transform: translateY(-10px) !important;  
   box-shadow: 
     0 20px 50px rgba(0, 0, 0, 0.6),
-    0 0 25px rgba(244, 2, 204, 0.4) !important;  /* گلو نئونی قوی‌تر */
+    0 0 25px rgba(244, 2, 204, 0.4) !important;  
   border-color: rgba(241, 6, 217, 0.5) !important;
-  background: rgba(255, 255, 255, 0.12) !important;  /* کمی روشن‌تر در hover */
+  background: rgba(255, 255, 255, 0.12) !important; 
 }
 
 .exercise.expanded .content-box,
@@ -164,7 +163,6 @@ exercise.expanded {
   border-radius:10px;
 }
 
-/* برای تمرین 1 که ساختار متفاوتی دارد (باکس‌ها و canvas) */
 .exercise.expanded .main-panel {
   direction:rtl;
 }
@@ -196,7 +194,6 @@ exercise.expanded {
 
 .answer{display:none;margin-top:10px}
 
-/* ===== Expanded ===== */
 .exercise.expanded{
   position:fixed;
   inset:40px;
@@ -284,7 +281,7 @@ exercise.expanded {
   left: 24px;
 
   padding: 12px 20px;
-  border-radius: 50px; /* گرد و بیضی */
+  border-radius: 50px; 
   border: none;
   cursor: pointer;
 
@@ -294,11 +291,11 @@ exercise.expanded {
   color: #0a0202;
   text-align: center;
 
-  background: linear-gradient(135deg, #6cf, rgb(254, 7, 209)); /* صورتی-بنفش */
+  background: linear-gradient(135deg, #6cf, rgb(254, 7, 209)); 
   box-shadow:
     0 0 15px #6cf,
     0 0 30px rgb(249, 4, 196),
-    inset 0 0 20px rgba(255,255,255,0.2); /* نور داخلی */
+    inset 0 0 20px rgba(255,255,255,0.2);
 
   z-index: 99999;
 
@@ -315,7 +312,6 @@ exercise.expanded {
     inset 0 0 25px rgba(255,255,255,0.25);
 }
 
-/* ===== Neon Pulse Animation ===== */
 @keyframes neonPulse {
   0%, 100% {
     box-shadow:
@@ -336,7 +332,7 @@ exercise.expanded {
   z-index:2;
   padding-top:80px;
   font-size:60px;
-  background: linear-gradient(135deg, rgb(117, 102, 255), rgb(254, 7, 209)); /* شبیه دکمه بازگشت */
+  background: linear-gradient(135deg, rgb(117, 102, 255), rgb(254, 7, 209)); 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: neonPulseText 2s ease-in-out infinite alternate;

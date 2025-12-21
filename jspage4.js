@@ -1,4 +1,4 @@
-/* ===== p5 Wireframe / Network Shapes ===== */
+
 new p5(p=>{
   let nodes=[];
   const NODE_COUNT = 22;
@@ -23,14 +23,13 @@ new p5(p=>{
     p.stroke(120,200,255,140);
     p.strokeWeight(1);
 
-    // move nodes
     nodes.forEach(n=>{
       n.x+=n.dx; n.y+=n.dy;
       if(n.x<0||n.x>p.width) n.dx*=-1;
       if(n.y<0||n.y>p.height) n.dy*=-1;
     });
 
-    // draw connections
+
     for(let i=0;i<nodes.length;i++){
       for(let j=i+1;j<nodes.length;j++){
         const d=p.dist(nodes[i].x,nodes[i].y,nodes[j].x,nodes[j].y);
@@ -40,7 +39,6 @@ new p5(p=>{
       }
     }
 
-    // draw nodes
     p.noFill();
     nodes.forEach(n=>{
       p.circle(n.x,n.y,4);
@@ -48,7 +46,7 @@ new p5(p=>{
   };
 });
 
-/* ===== Logic ===== */
+
 let active = null;
 
 const faMap = {
@@ -112,7 +110,7 @@ function toggleAnswer(e,btn){
     return "outside";
   };
 
-  /* ===== انتخاب باکس ===== */
+
   document.querySelectorAll(".box").forEach(box=>{
     box.addEventListener("click",e=>{
       e.stopPropagation();
@@ -169,7 +167,7 @@ function toggleAnswer(e,btn){
     return null;
   }
 
-  /* ===== کلیک روی نقطه ===== */
+
   mainCanvas.addEventListener("click",e=>{
     if(!selectedBoxType) return;
 
@@ -189,13 +187,12 @@ window.finishExercise = function(e){
 
   const ans = document.getElementById("exercise1-answer");
 
-  // اگر پاسخ باز است → فقط ببند و تمام
   if(ans.style.display === "block"){
     ans.style.display = "none";
     return;
   }
 
-  // محاسبه و نمایش پاسخ تمرین 1
+
   let correct = 0, wrong = 0;
   let report = "این نقاط در فضای متریک دوبعدی هستند (x,y). دسته‌بندی فاصله از مرکز:<br>";
 
@@ -216,10 +213,9 @@ window.finishExercise = function(e){
   report += `<hr>درست: ${correct} | غلط: ${wrong}`;
   ans.innerHTML = report;
 
-  // حالا پاسخ تمرین 1 را نمایش بده
+
   ans.style.display = "block";
 
-  // سپس همه پاسخ‌های دیگر (تمرین 2 تا 6) را ببند
   document.querySelectorAll(".answer").forEach(a=>{
     if(a !== ans){
       a.style.display = "none";
@@ -233,16 +229,14 @@ window.finishExercise = function(e){
 window.resetExercise = function(e){
   e.stopPropagation();
 
-  // بازگرداندن نقاط به حالت اولیه
   points = JSON.parse(JSON.stringify(basePoints));
 
-  // پاک کردن انتخاب باکس
   selectedBoxType = null;
   document.querySelectorAll(".box").forEach(b=>{
     b.classList.remove("selected");
   });
 
-  // پاک کردن نتیجه
+
   const ans = document.getElementById("exercise1-answer");
   ans.innerHTML = "";
   ans.style.display = "none";
@@ -257,10 +251,10 @@ function toggleAnswer(e, btn) {
 
   const currentAnswer = btn.nextElementSibling;
 
-  // باز یا بسته کردن پاسخ تمرین جاری
+
   currentAnswer.style.display = currentAnswer.style.display === 'block' ? 'none' : 'block';
 
-  // بستن همه پاسخ‌های دیگر شامل تمرین 1
+
   document.querySelectorAll(".answer").forEach(ans=>{
     if(ans !== currentAnswer){
       ans.style.display = "none";
