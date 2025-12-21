@@ -10,7 +10,7 @@
 
 body {
     margin: 0;
-    font-family: 'FarMorvarid', sans-serif;
+    font-family: 'Vazirmatn', sans-serif;
     background: #0c0f20;
     color: var(--text-primary);
     min-height: 100vh;
@@ -170,4 +170,7 @@ html {
     nav a { display: block; margin: 8px 0; padding: 12px; }
     h1 { font-size: 30px; }
     h2 { font-size: 24px; }
+}
+.formula {
+    color: white;
 }

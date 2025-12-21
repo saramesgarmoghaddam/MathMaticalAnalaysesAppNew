@@ -41,6 +41,39 @@ body{
   gap:20px;
 }
 
+.box.selected{
+  outline:2px solid #4fc3ff;
+  background:rgba(79,195,255,0.2);
+}
+
+.canvas-panel{
+  position: relative;
+}
+
+.reset-btn{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 6px 12px;
+  font-size: 13px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  margin-top: 230px;
+  margin-right: 20px;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  backdrop-filter: blur(4px);
+
+  transition: all 0.2s ease;
+}
+
+.reset-btn:hover{
+  background: rgba(255,80,80,0.85);
+  transform: scale(1.05);
+}
+
+
 @media(max-width:1024px){
   .container{grid-template-columns:repeat(2,1fr)}
 }
