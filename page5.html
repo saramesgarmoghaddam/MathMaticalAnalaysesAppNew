@@ -346,10 +346,12 @@
         questionNumberEl.textContent = `امتیاز نهایی: ${score} از ${questions.length}`;
         optionsEl.innerHTML = '';
         feedbackEl.classList.add('hidden');
-        nextBtn.textContent = "تمام";
+        
+        nextBtn.textContent = "اتمام";
         nextBtn.disabled = true;
       }
     };
+    
     
     // شروع کوییز
     loadQuestion();
@@ -364,5 +366,6 @@
   }
 </script>
    <script src="jspage5.js"></script>
+   
 </body>
 </html>
