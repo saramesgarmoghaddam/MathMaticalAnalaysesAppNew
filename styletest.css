@@ -203,3 +203,40 @@ input[type="range"]::-webkit-slider-thumb {
 .math::-webkit-scrollbar-thumb:hover {
   background: #ff4fd8;
 }
+
+.point-selector {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.point-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.point-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    font-weight: bold;
+    border: 3px solid #444;
+    border-radius: 50%;
+    background: #223;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.point-btn:hover {
+    background: #334;
+    transform: scale(1.1);
+}
+
+.point-btn.active {
+    background: #0ff;
+    color: #000;
+    border-color: #0ff;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
+}
